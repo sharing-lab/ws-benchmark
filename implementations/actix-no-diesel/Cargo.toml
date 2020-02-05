@@ -1,0 +1,15 @@
+[package]
+name = "actix-web-demo-2"
+version = "1.0.1"
+edition = "2018"
+ 
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+ 
+[dependencies]
+r2d2_postgres = "^0.14"
+r2d2 = "0.8"
+postgres = "0.17"
+actix-web = "1.0.7"
+serde = { version = "1.0.101", features = ["derive"] }
+futures = "0.1"
+env_logger = "0.6"

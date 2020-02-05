@@ -1,0 +1,26 @@
+version: 1.0
+shards:
+  action-controller:
+    github: spider-gazelle/action-controller
+    version: 2.3.1
+
+  db:
+    github: crystal-lang/crystal-db
+    version: 0.8.0
+
+  delimiter_tree:
+    github: drujensen/delimiter_tree
+    version: 0.1.4
+
+  habitat:
+    github: luckyframework/habitat
+    version: 0.4.3
+
+  kilt:
+    github: jeromegn/kilt
+    version: 0.6.0
+
+  pg:
+    github: will/crystal-pg
+    version: 0.20.0
+

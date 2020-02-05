@@ -1,0 +1,13 @@
+name: spider-g
+version: 0.1.0
+
+dependencies:
+  action-controller:
+    github: spider-gazelle/action-controller
+  pg:
+    github: will/crystal-pg
+
+targets:
+  ws:
+    main: src/app.cr
+
