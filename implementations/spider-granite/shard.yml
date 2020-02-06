@@ -1,0 +1,15 @@
+name: spider-granite
+version: 0.1.0
+
+dependencies:
+  action-controller:
+    github: spider-gazelle/action-controller
+  pg:
+    github: will/crystal-pg
+  granite:
+    github: amberframework/granite
+
+targets:
+  ws:
+    main: src/app.cr
+
