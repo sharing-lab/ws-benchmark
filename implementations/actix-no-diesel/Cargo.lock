@@ -235,7 +235,7 @@ dependencies = [
 
 [[package]]
 name = "actix-web-demo-2"
-version = "0.1.0"
+version = "1.0.1"
 dependencies = [
  "actix-web 1.0.9 (registry+https://github.com/rust-lang/crates.io-index)",
  "env_logger 0.6.2 (registry+https://github.com/rust-lang/crates.io-index)",
