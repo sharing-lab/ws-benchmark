@@ -1,0 +1,351 @@
+$ cat /proc/cpuinfo 
+processor : 0
+vendor_id : GenuineIntel
+cpu family  : 6
+model   : 85
+model name  : Intel(R) Xeon(R) Gold 6140 CPU @ 2.30GHz
+stepping  : 4
+microcode : 0x1
+cpu MHz   : 2294.608
+cache size  : 25344 KB
+physical id : 0
+siblings  : 1
+core id   : 0
+cpu cores : 1
+apicid    : 0
+initial apicid  : 0
+fpu   : yes
+fpu_exception : yes
+cpuid level : 13
+wp    : yes
+flags   : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl eagerfpu pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single ssbd ibrs ibpb tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 pku ospke md_clear spec_ctrl
+bogomips  : 4589.21
+clflush size  : 64
+cache_alignment : 64
+address sizes : 40 bits physical, 48 bits virtual
+power management:
+
+
+1. http4s
+==============
+
+TERMINAL #1 :
+-------------
+
+$ java -jar target/scala-2.12/ws-benchmark-assembly-1.0.jar 
+[main] INFO  o.h.b.c.n.NIO1SocketServerGroup - Service bound to address /127.0.0.1:55503 
+[main] INFO  o.h.s.b.BlazeBuilder - 
+  _   _   _        _ _     
+ | |_| |_| |_ _ __| | | ___
+ | ' \  _|  _| '_ \_  _(_-<
+ |_||_\__|\__| .__/ |_|/__/
+             |_| 
+[main] INFO  o.h.s.b.BlazeBuilder - http4s v0.18.22 on blaze v0.12.13 started at http://127.0.0.1:55503/ 
+
+
+TERMINAL #2 :
+-------------
+
+$ curl http://127.0.0.1:55503/color
+[{"id":1,"code":"FFFFFF","name":"White"},{"id":2,"code":"C0C0C0","name":"Silver"},{"id":3,"code":"000000","name":"Black"},{"id":4,"code":"0000A0","name":"Dark Blue"},{"id":5,"code":"FF0000","name":"Red"}]
+
+$ ab -n 1000 -c 4 http://127.0.0.1:55503/color
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+
+Server Software:        
+Server Hostname:        127.0.0.1
+Server Port:            55503
+
+Document Path:          /color
+Document Length:        204 bytes
+
+Concurrency Level:      4
+Time taken for tests:   1.992 seconds
+Complete requests:      1000
+Failed requests:        0
+Write errors:           0
+Total transferred:      292000 bytes
+HTML transferred:       204000 bytes
+Requests per second:    502.08 [#/sec] (mean)
+Time per request:       7.967 [ms] (mean)
+Time per request:       1.992 [ms] (mean, across all concurrent requests)
+Transfer rate:          143.17 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:     4    8   2.5      7      21
+Waiting:        1    1   0.8      1      11
+Total:          4    8   2.5      7      21
+
+Percentage of the requests served within a certain time (ms)
+  50%      7
+  66%      7
+  75%      8
+  80%      8
+  90%     10
+  95%     14
+  98%     18
+  99%     18
+ 100%     21 (longest request)
+
+
+$ ps uxw
+  PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+25096 18.0 10.3 2516668 195072 pts/4  Sl   09:31   0:41 java -jar target/scala-2.12/ws-benchmark-assembly-1.0.jar
+
+
+
+2. actix-diesel
+===============
+
+TERMINAL 1 :
+------------
+
+$ cargo run --release
+    Finished release [optimized] target(s) in 0.20s
+     Running `target/release/r2d2-example`
+
+
+TERMINAL 2 :
+------------
+
+$ curl http://127.0.0.1:55502/color
+[{"id":1,"code":"FFFFFF","name":"White"},{"id":2,"code":"C0C0C0","name":"Silver"},{"id":3,"code":"000000","name":"Black"},{"id":4,"code":"0000A0","name":"Dark Blue"},{"id":5,"code":"FF0000","name":"Red"}]
+
+$ ab -n 1000 -c 4 http://127.0.0.1:55502/color
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+
+Server Software:        
+Server Hostname:        127.0.0.1
+Server Port:            55502
+
+Document Path:          /color
+Document Length:        204 bytes
+
+Concurrency Level:      4
+Time taken for tests:   0.557 seconds
+Complete requests:      1000
+Failed requests:        0
+Write errors:           0
+Total transferred:      313000 bytes
+HTML transferred:       204000 bytes
+Requests per second:    1796.52 [#/sec] (mean)
+Time per request:       2.227 [ms] (mean)
+Time per request:       0.557 [ms] (mean, across all concurrent requests)
+Transfer rate:          549.13 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:     1    2   0.1      2       3
+Waiting:        1    2   0.1      2       3
+Total:          2    2   0.1      2       3
+
+Percentage of the requests served within a certain time (ms)
+  50%      2
+  66%      2
+  75%      2
+  80%      2
+  90%      2
+  95%      2
+  98%      3
+  99%      3
+ 100%      3 (longest request)
+
+
+$ ps uxw
+  PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+25272  1.4  0.2 628604  5560 pts/4    Sl   09:37   0:02 target/release/r2d2-example
+
+
+
+3. spider-g
+===========
+
+TERMINAL 1 :
+
+$ ./bin/ws-rel 
+Listening on http://127.0.0.1:55501
+
+
+TERMINAL 2 :
+
+$ curl http://127.0.0.1:55501/color
+[{"id":1,"code":"FFFFFF","name":"White"},{"id":2,"code":"C0C0C0","name":"Silver"},{"id":3,"code":"000000","name":"Black"},{"id":4,"code":"0000A0","name":"Dark Blue"},{"id":5,"code":"FF0000","name":"Red"}]
+
+$ ab -n 1000 -c 4 http://127.0.0.1:55501/color
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+
+Server Software:        
+Server Hostname:        127.0.0.1
+Server Port:            55501
+
+Document Path:          /color
+Document Length:        204 bytes
+
+Concurrency Level:      4
+Time taken for tests:   0.364 seconds
+Complete requests:      1000
+Failed requests:        0
+Write errors:           0
+Total transferred:      276000 bytes
+HTML transferred:       204000 bytes
+Requests per second:    2750.41 [#/sec] (mean)
+Time per request:       1.454 [ms] (mean)
+Time per request:       0.364 [ms] (mean, across all concurrent requests)
+Transfer rate:          741.32 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:     1    1   0.2      1       4
+Waiting:        1    1   0.2      1       4
+Total:          1    1   0.2      1       4
+
+Percentage of the requests served within a certain time (ms)
+  50%      1
+  66%      1
+  75%      1
+  80%      1
+  90%      2
+  95%      2
+  98%      2
+  99%      2
+ 100%      4 (longest request)
+
+
+$ ps uxw
+  PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+25841  0.8  0.4  90656  7660 pts/4    S    09:49   0:00 ./bin/ws-rel
+25894  0.0  0.0 155372  1852 pts/2    R+   09:51   0:00 ps uxw
+
+
+
+4. spring
+=========
+
+terminal 1:
+-----------
+$ java -jar target/ws_benchmark-1.0.7.jar
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.0.1.RELEASE)
+
+2020-02-06 09:16:37.282  INFO 24698 --- [           main] org.ws_benchmark.Server                  : Starting Server v1.0.7
+
+
+terminal 2:
+-----------
+$ ab -n 1000 -c 4 http://127.0.0.1:55506/color
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+
+Server Software:        
+Server Hostname:        127.0.0.1
+Server Port:            55506
+
+Document Path:          /color
+Document Length:        204 bytes
+
+Concurrency Level:      4
+Time taken for tests:   0.971 seconds
+Complete requests:      1000
+Failed requests:        0
+Write errors:           0
+Total transferred:      323000 bytes
+HTML transferred:       204000 bytes
+Requests per second:    1029.87 [#/sec] (mean)
+Time per request:       3.884 [ms] (mean)
+Time per request:       0.971 [ms] (mean, across all concurrent requests)
+Transfer rate:          324.85 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:     2    4   2.3      3      20
+Waiting:        2    4   2.3      3      20
+Total:          3    4   2.3      3      20
+
+Percentage of the requests served within a certain time (ms)
+  50%      3
+  66%      3
+  75%      3
+  80%      3
+  90%      4
+  95%      7
+  98%     14
+  99%     14
+ 100%     20 (longest request)
+
+$ ps uxw
+  PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+25675 12.3  9.5 2513684 180344 pts/2  Sl+  09:43   0:29 java -jar target/ws_benchmark-1.0.7.jar
