@@ -26,7 +26,7 @@ fn main() -> std::io::Result<()> {
     env_logger::init();
     dotenv::dotenv().ok();
 
-    let manager = ConnectionManager::<PgConnection>::new("postgres://postgres@localhost/test_db");
+    let manager = ConnectionManager::<PgConnection>::new("postgres://postgres@127.0.0.1/test_db");
     let pool = Pool::builder().build(manager).unwrap();
 
     // Start http server
