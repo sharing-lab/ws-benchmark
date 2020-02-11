@@ -6,7 +6,7 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
  
 [dependencies]
-r2d2_postgres = "^0.14"
+r2d2_postgres = "0.16"
 r2d2 = "0.8"
 postgres = "0.17"
 actix-web = "1.0.7"
