@@ -1,0 +1,18 @@
+version: 1.0
+shards:
+  db:
+    github: crystal-lang/crystal-db
+    version: 0.8.0
+
+  grip:
+    github: grkek/grip
+    version: 0.27.2
+
+  pg:
+    github: will/crystal-pg
+    version: 0.20.0
+
+  radix:
+    github: luislavena/radix
+    version: 0.3.9
+

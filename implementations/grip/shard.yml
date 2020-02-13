@@ -1,0 +1,12 @@
+name: ws
+version: 0.1.0
+
+dependencies:
+  grip:
+    github: grkek/grip
+  pg:
+    github: will/crystal-pg
+
+targets:
+  ws:
+    main: src/ws.cr
