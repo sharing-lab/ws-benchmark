@@ -9,7 +9,9 @@ end
 
 class IndexHttpConsumer < Grip::HttpConsumer
   def get(req)
-    json({id: 1})
+    list = db.query_all "select id, code, name from color",
+      as: {id: Int32, code: String, name: String}
+    json(list)
   end
 end
 
@@ -20,4 +22,4 @@ class IdApi < Grip::Application
 end
 
 id_api = IdApi.new
-id_api.run
+id_api.run(55513)
