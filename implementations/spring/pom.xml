@@ -5,7 +5,7 @@
 
 	<groupId>org</groupId>
 	<artifactId>ws_benchmark</artifactId>
-	<version>1.0.7</version>
+	<version>1.0.8</version>
 	<packaging>jar</packaging>
 
 	<name>spring</name>

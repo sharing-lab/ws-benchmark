@@ -1,0 +1,308 @@
+ab -n 4096 -c 1 http://192.168.1.12:55502/color
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.1.12 (be patient)
+
+
+Server Software:        
+Server Hostname:        192.168.1.12
+Server Port:            55502
+
+Document Path:          /color
+Document Length:        204 bytes
+
+Concurrency Level:      1
+Time taken for tests:   0.648 seconds
+Complete requests:      4096
+Failed requests:        0
+Write errors:           0
+Total transferred:      1282048 bytes
+HTML transferred:       835584 bytes
+Requests per second:    6324.46 [#/sec] (mean)
+Time per request:       0.158 [ms] (mean)
+Time per request:       0.158 [ms] (mean, across all concurrent requests)
+Transfer rate:          1933.16 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:     0    0   0.3      0      17
+Waiting:        0    0   0.3      0      17
+Total:          0    0   0.3      0      17
+
+Percentage of the requests served within a certain time (ms)
+  50%      0
+  66%      0
+  75%      0
+  80%      0
+  90%      0
+  95%      0
+  98%      0
+  99%      0
+ 100%     17 (longest request)
+ab -n 4096 -c 2 http://192.168.1.12:55502/color
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.1.12 (be patient)
+
+
+Server Software:        
+Server Hostname:        192.168.1.12
+Server Port:            55502
+
+Document Path:          /color
+Document Length:        204 bytes
+
+Concurrency Level:      2
+Time taken for tests:   0.345 seconds
+Complete requests:      4096
+Failed requests:        0
+Write errors:           0
+Total transferred:      1282048 bytes
+HTML transferred:       835584 bytes
+Requests per second:    11880.28 [#/sec] (mean)
+Time per request:       0.168 [ms] (mean)
+Time per request:       0.084 [ms] (mean, across all concurrent requests)
+Transfer rate:          3631.37 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:     0    0   0.0      0       1
+Waiting:        0    0   0.0      0       1
+Total:          0    0   0.0      0       1
+
+Percentage of the requests served within a certain time (ms)
+  50%      0
+  66%      0
+  75%      0
+  80%      0
+  90%      0
+  95%      0
+  98%      0
+  99%      0
+ 100%      1 (longest request)
+ab -n 4096 -c 4 http://192.168.1.12:55502/color
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.1.12 (be patient)
+
+
+Server Software:        
+Server Hostname:        192.168.1.12
+Server Port:            55502
+
+Document Path:          /color
+Document Length:        204 bytes
+
+Concurrency Level:      4
+Time taken for tests:   0.232 seconds
+Complete requests:      4096
+Failed requests:        0
+Write errors:           0
+Total transferred:      1282048 bytes
+HTML transferred:       835584 bytes
+Requests per second:    17684.82 [#/sec] (mean)
+Time per request:       0.226 [ms] (mean)
+Time per request:       0.057 [ms] (mean, across all concurrent requests)
+Transfer rate:          5405.62 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:     0    0   0.0      0       1
+Waiting:        0    0   0.0      0       1
+Total:          0    0   0.0      0       1
+
+Percentage of the requests served within a certain time (ms)
+  50%      0
+  66%      0
+  75%      0
+  80%      0
+  90%      0
+  95%      0
+  98%      0
+  99%      0
+ 100%      1 (longest request)
+ab -n 4096 -c 8 http://192.168.1.12:55502/color
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.1.12 (be patient)
+
+
+Server Software:        
+Server Hostname:        192.168.1.12
+Server Port:            55502
+
+Document Path:          /color
+Document Length:        204 bytes
+
+Concurrency Level:      8
+Time taken for tests:   0.203 seconds
+Complete requests:      4096
+Failed requests:        0
+Write errors:           0
+Total transferred:      1282048 bytes
+HTML transferred:       835584 bytes
+Requests per second:    20198.53 [#/sec] (mean)
+Time per request:       0.396 [ms] (mean)
+Time per request:       0.050 [ms] (mean, across all concurrent requests)
+Transfer rate:          6173.97 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:     0    0   0.1      0       1
+Waiting:        0    0   0.1      0       1
+Total:          0    0   0.1      0       1
+
+Percentage of the requests served within a certain time (ms)
+  50%      0
+  66%      0
+  75%      0
+  80%      0
+  90%      1
+  95%      1
+  98%      1
+  99%      1
+ 100%      1 (longest request)
+ab -n 4096 -c 16 http://192.168.1.12:55502/color
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.1.12 (be patient)
+
+
+Server Software:        
+Server Hostname:        192.168.1.12
+Server Port:            55502
+
+Document Path:          /color
+Document Length:        204 bytes
+
+Concurrency Level:      16
+Time taken for tests:   0.188 seconds
+Complete requests:      4096
+Failed requests:        0
+Write errors:           0
+Total transferred:      1282048 bytes
+HTML transferred:       835584 bytes
+Requests per second:    21807.07 [#/sec] (mean)
+Time per request:       0.734 [ms] (mean)
+Time per request:       0.046 [ms] (mean, across all concurrent requests)
+Transfer rate:          6665.64 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       0
+Processing:     0    1   0.3      1       2
+Waiting:        0    1   0.2      1       2
+Total:          0    1   0.2      1       2
+
+Percentage of the requests served within a certain time (ms)
+  50%      1
+  66%      1
+  75%      1
+  80%      1
+  90%      1
+  95%      1
+  98%      1
+  99%      1
+ 100%      2 (longest request)
+ab -n 4096 -c 32 http://192.168.1.12:55502/color
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.1.12 (be patient)
+
+
+Server Software:        
+Server Hostname:        192.168.1.12
+Server Port:            55502
+
+Document Path:          /color
+Document Length:        204 bytes
+
+Concurrency Level:      32
+Time taken for tests:   0.181 seconds
+Complete requests:      4096
+Failed requests:        0
+Write errors:           0
+Total transferred:      1282048 bytes
+HTML transferred:       835584 bytes
+Requests per second:    22662.01 [#/sec] (mean)
+Time per request:       1.412 [ms] (mean)
+Time per request:       0.044 [ms] (mean, across all concurrent requests)
+Transfer rate:          6926.96 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.2      0       1
+Processing:     0    1   0.5      1       4
+Waiting:        0    1   0.5      1       4
+Total:          0    1   0.5      1       4
+
+Percentage of the requests served within a certain time (ms)
+  50%      1
+  66%      2
+  75%      2
+  80%      2
+  90%      2
+  95%      2
+  98%      3
+  99%      3
+ 100%      4 (longest request)
+ab -n 4096 -c 64 http://192.168.1.12:55502/color
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.1.12 (be patient)
+
+
+Server Software:        
+Server Hostname:        192.168.1.12
+Server Port:            55502
+
+Document Path:          /color
+Document Length:        204 bytes
+
+Concurrency Level:      64
+Time taken for tests:   0.175 seconds
+Complete requests:      4096
+Failed requests:        0
+Write errors:           0
+Total transferred:      1282361 bytes
+HTML transferred:       835788 bytes
+Requests per second:    23380.86 [#/sec] (mean)
+Time per request:       2.737 [ms] (mean)
+Time per request:       0.043 [ms] (mean, across all concurrent requests)
+Transfer rate:          7148.43 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.3      0       1
+Processing:     0    2   1.3      2      10
+Waiting:        0    2   1.3      2      10
+Total:          0    3   1.3      3      10
+
+Percentage of the requests served within a certain time (ms)
+  50%      3
+  66%      3
+  75%      3
+  80%      4
+  90%      4
+  95%      5
+  98%      6
+  99%      7
+ 100%     10 (longest request)
