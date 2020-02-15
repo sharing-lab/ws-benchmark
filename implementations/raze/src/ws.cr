@@ -15,4 +15,7 @@ get "/color" do |env|
   list.to_json
 end
 
-Raze.run 55514
+Raze.config.logging = true
+#Raze.config.env = "production"
+Raze.config.port = 55514
+Raze.run
