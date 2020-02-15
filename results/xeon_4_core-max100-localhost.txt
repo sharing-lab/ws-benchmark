@@ -1360,23 +1360,23 @@ Document Path:          /color
 Document Length:        204 bytes
 
 Concurrency Level:      64
-Time taken for tests:   0.221 seconds
+Time taken for tests:   0.211 seconds
 Complete requests:      4096
 Failed requests:        0
 Write errors:           0
 Total transferred:      1216512 bytes
 HTML transferred:       835584 bytes
-Requests per second:    18556.27 [#/sec] (mean)
-Time per request:       3.449 [ms] (mean)
-Time per request:       0.054 [ms] (mean, across all concurrent requests)
-Transfer rate:          5382.04 [Kbytes/sec] received
+Requests per second:    19368.54 [#/sec] (mean)
+Time per request:       3.304 [ms] (mean)
+Time per request:       0.052 [ms] (mean, across all concurrent requests)
+Transfer rate:          5617.63 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
 Connect:        0    0   0.1      0       1
-Processing:     1    3   0.7      3      14
-Waiting:        0    3   0.7      3      14
-Total:          1    3   0.7      3      14
+Processing:     0    3   0.5      3       5
+Waiting:        0    3   0.5      3       5
+Total:          1    3   0.5      3       5
 
 Percentage of the requests served within a certain time (ms)
   50%      3
@@ -1385,6 +1385,6 @@ Percentage of the requests served within a certain time (ms)
   80%      4
   90%      4
   95%      4
-  98%      5
-  99%      6
- 100%     14 (longest request)
+  98%      4
+  99%      4
+ 100%      5 (longest request)
