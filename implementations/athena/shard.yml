@@ -1,0 +1,12 @@
+name: ws
+version: 0.1.0
+
+dependencies:
+  athena:
+    github: athena-framework/athena 
+  pg:
+    github: will/crystal-pg
+
+targets:
+  ws:
+    main: src/ws.cr

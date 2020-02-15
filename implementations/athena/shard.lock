@@ -1,0 +1,30 @@
+version: 1.0
+shards:
+  amber_router:
+    github: amberframework/amber-router
+    version: 0.3.0
+
+  athena:
+    github: athena-framework/athena
+    version: 0.8.0
+
+  athena-config:
+    github: athena-framework/config
+    version: 0.1.0
+
+  athena-dependency_injection:
+    github: athena-framework/dependency-injection
+    version: 0.1.1
+
+  athena-event_dispatcher:
+    github: athena-framework/event-dispatcher
+    version: 0.1.0
+
+  db:
+    github: crystal-lang/crystal-db
+    version: 0.8.0
+
+  pg:
+    github: will/crystal-pg
+    version: 0.20.0
+

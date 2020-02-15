@@ -1,0 +1,13 @@
+name: ws
+version: 0.1.0
+
+dependencies:
+  raze:
+    github: samueleaton/raze
+    version: ~> 0.3.0
+  pg:
+    github: will/crystal-pg
+
+targets:
+  ws:
+    main: src/ws.cr
