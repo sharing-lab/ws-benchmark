@@ -12,8 +12,7 @@ type color struct {
 
 func getProducts(db *sql.DB, start, count int) ([]color, error) {
 	rows, err := db.Query(
-		"SELECT id, code, name FROM color",
-		count, start)
+		"SELECT id, code, name FROM color")
 
 	if err != nil {
 		return nil, err
