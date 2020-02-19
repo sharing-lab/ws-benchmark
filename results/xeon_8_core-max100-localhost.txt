@@ -635,6 +635,17 @@ Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
 
 Benchmarking 127.0.0.1 (be patient)
+Completed 409 requests
+Completed 818 requests
+Completed 1227 requests
+Completed 1636 requests
+Completed 2045 requests
+Completed 2454 requests
+Completed 2863 requests
+Completed 3272 requests
+Completed 3681 requests
+Completed 4090 requests
+Finished 4096 requests
 
 
 Server Software:        
@@ -645,23 +656,23 @@ Document Path:          /color
 Document Length:        204 bytes
 
 Concurrency Level:      1
-Time taken for tests:   0.721 seconds
+Time taken for tests:   0.684 seconds
 Complete requests:      4096
 Failed requests:        0
 Write errors:           0
 Total transferred:      1216512 bytes
 HTML transferred:       835584 bytes
-Requests per second:    5682.45 [#/sec] (mean)
-Time per request:       0.176 [ms] (mean)
-Time per request:       0.176 [ms] (mean, across all concurrent requests)
-Transfer rate:          1648.13 [Kbytes/sec] received
+Requests per second:    5989.85 [#/sec] (mean)
+Time per request:       0.167 [ms] (mean)
+Time per request:       0.167 [ms] (mean, across all concurrent requests)
+Transfer rate:          1737.29 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
 Connect:        0    0   0.0      0       0
-Processing:     0    0   0.1      0       2
-Waiting:        0    0   0.1      0       2
-Total:          0    0   0.1      0       2
+Processing:     0    0   0.0      0       1
+Waiting:        0    0   0.0      0       1
+Total:          0    0   0.0      0       1
 
 Percentage of the requests served within a certain time (ms)
   50%      0
@@ -672,13 +683,24 @@ Percentage of the requests served within a certain time (ms)
   95%      0
   98%      0
   99%      0
- 100%      2 (longest request)
+ 100%      1 (longest request)
 ab -n 4096 -c 2 http://127.0.0.1:55504/color
 This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
 
 Benchmarking 127.0.0.1 (be patient)
+Completed 409 requests
+Completed 818 requests
+Completed 1227 requests
+Completed 1636 requests
+Completed 2045 requests
+Completed 2454 requests
+Completed 2863 requests
+Completed 3272 requests
+Completed 3681 requests
+Completed 4090 requests
+Finished 4096 requests
 
 
 Server Software:        
@@ -689,23 +711,23 @@ Document Path:          /color
 Document Length:        204 bytes
 
 Concurrency Level:      2
-Time taken for tests:   0.384 seconds
+Time taken for tests:   0.373 seconds
 Complete requests:      4096
 Failed requests:        0
 Write errors:           0
 Total transferred:      1216512 bytes
 HTML transferred:       835584 bytes
-Requests per second:    10680.24 [#/sec] (mean)
-Time per request:       0.187 [ms] (mean)
-Time per request:       0.094 [ms] (mean, across all concurrent requests)
-Transfer rate:          3097.69 [Kbytes/sec] received
+Requests per second:    10979.17 [#/sec] (mean)
+Time per request:       0.182 [ms] (mean)
+Time per request:       0.091 [ms] (mean, across all concurrent requests)
+Transfer rate:          3184.39 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
 Connect:        0    0   0.0      0       0
-Processing:     0    0   0.1      0       2
-Waiting:        0    0   0.1      0       2
-Total:          0    0   0.1      0       2
+Processing:     0    0   0.1      0       1
+Waiting:        0    0   0.1      0       1
+Total:          0    0   0.1      0       1
 
 Percentage of the requests served within a certain time (ms)
   50%      0
@@ -716,13 +738,24 @@ Percentage of the requests served within a certain time (ms)
   95%      0
   98%      0
   99%      0
- 100%      2 (longest request)
+ 100%      1 (longest request)
 ab -n 4096 -c 4 http://127.0.0.1:55504/color
 This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
 
 Benchmarking 127.0.0.1 (be patient)
+Completed 409 requests
+Completed 818 requests
+Completed 1227 requests
+Completed 1636 requests
+Completed 2045 requests
+Completed 2454 requests
+Completed 2863 requests
+Completed 3272 requests
+Completed 3681 requests
+Completed 4090 requests
+Finished 4096 requests
 
 
 Server Software:        
@@ -733,23 +766,23 @@ Document Path:          /color
 Document Length:        204 bytes
 
 Concurrency Level:      4
-Time taken for tests:   0.257 seconds
+Time taken for tests:   0.252 seconds
 Complete requests:      4096
 Failed requests:        0
 Write errors:           0
 Total transferred:      1216512 bytes
 HTML transferred:       835584 bytes
-Requests per second:    15928.94 [#/sec] (mean)
-Time per request:       0.251 [ms] (mean)
-Time per request:       0.063 [ms] (mean, across all concurrent requests)
-Transfer rate:          4620.02 [Kbytes/sec] received
+Requests per second:    16254.42 [#/sec] (mean)
+Time per request:       0.246 [ms] (mean)
+Time per request:       0.062 [ms] (mean, across all concurrent requests)
+Transfer rate:          4714.42 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
 Connect:        0    0   0.0      0       0
-Processing:     0    0   0.2      0       3
-Waiting:        0    0   0.2      0       3
-Total:          0    0   0.2      0       3
+Processing:     0    0   0.1      0       1
+Waiting:        0    0   0.1      0       1
+Total:          0    0   0.1      0       1
 
 Percentage of the requests served within a certain time (ms)
   50%      0
@@ -759,14 +792,25 @@ Percentage of the requests served within a certain time (ms)
   90%      0
   95%      0
   98%      0
-  99%      2
- 100%      3 (longest request)
+  99%      1
+ 100%      1 (longest request)
 ab -n 4096 -c 8 http://127.0.0.1:55504/color
 This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
 
 Benchmarking 127.0.0.1 (be patient)
+Completed 409 requests
+Completed 818 requests
+Completed 1227 requests
+Completed 1636 requests
+Completed 2045 requests
+Completed 2454 requests
+Completed 2863 requests
+Completed 3272 requests
+Completed 3681 requests
+Completed 4090 requests
+Finished 4096 requests
 
 
 Server Software:        
@@ -777,40 +821,51 @@ Document Path:          /color
 Document Length:        204 bytes
 
 Concurrency Level:      8
-Time taken for tests:   0.232 seconds
+Time taken for tests:   0.226 seconds
 Complete requests:      4096
 Failed requests:        0
 Write errors:           0
 Total transferred:      1216512 bytes
 HTML transferred:       835584 bytes
-Requests per second:    17651.37 [#/sec] (mean)
-Time per request:       0.453 [ms] (mean)
-Time per request:       0.057 [ms] (mean, across all concurrent requests)
-Transfer rate:          5119.59 [Kbytes/sec] received
+Requests per second:    18135.93 [#/sec] (mean)
+Time per request:       0.441 [ms] (mean)
+Time per request:       0.055 [ms] (mean, across all concurrent requests)
+Transfer rate:          5260.13 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
 Connect:        0    0   0.0      0       0
-Processing:     0    0   0.2      0       3
-Waiting:        0    0   0.2      0       3
-Total:          0    0   0.2      0       3
+Processing:     0    0   0.2      0       5
+Waiting:        0    0   0.2      0       5
+Total:          0    0   0.2      0       5
 
 Percentage of the requests served within a certain time (ms)
   50%      0
   66%      0
   75%      0
-  80%      0
+  80%      1
   90%      1
   95%      1
-  98%      2
-  99%      2
- 100%      3 (longest request)
+  98%      1
+  99%      1
+ 100%      5 (longest request)
 ab -n 4096 -c 16 http://127.0.0.1:55504/color
 This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
 
 Benchmarking 127.0.0.1 (be patient)
+Completed 409 requests
+Completed 818 requests
+Completed 1227 requests
+Completed 1636 requests
+Completed 2045 requests
+Completed 2454 requests
+Completed 2863 requests
+Completed 3272 requests
+Completed 3681 requests
+Completed 4090 requests
+Finished 4096 requests
 
 
 Server Software:        
@@ -821,25 +876,23 @@ Document Path:          /color
 Document Length:        204 bytes
 
 Concurrency Level:      16
-Time taken for tests:   0.221 seconds
+Time taken for tests:   0.212 seconds
 Complete requests:      4096
 Failed requests:        0
 Write errors:           0
 Total transferred:      1216512 bytes
 HTML transferred:       835584 bytes
-Requests per second:    18567.88 [#/sec] (mean)
-Time per request:       0.862 [ms] (mean)
-Time per request:       0.054 [ms] (mean, across all concurrent requests)
-Transfer rate:          5385.41 [Kbytes/sec] received
+Requests per second:    19279.47 [#/sec] (mean)
+Time per request:       0.830 [ms] (mean)
+Time per request:       0.052 [ms] (mean, across all concurrent requests)
+Transfer rate:          5591.80 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
 Connect:        0    0   0.1      0       1
-Processing:     0    1   0.4      1       5
-Waiting:        0    1   0.4      0       5
-Total:          0    1   0.4      1       6
-ERROR: The median and mean for the waiting time are more than twice the standard
-       deviation apart. These results are NOT reliable.
+Processing:     0    1   0.3      1       5
+Waiting:        0    1   0.3      1       5
+Total:          0    1   0.3      1       5
 
 Percentage of the requests served within a certain time (ms)
   50%      1
@@ -847,16 +900,27 @@ Percentage of the requests served within a certain time (ms)
   75%      1
   80%      1
   90%      1
-  95%      2
-  98%      2
+  95%      1
+  98%      1
   99%      2
- 100%      6 (longest request)
+ 100%      5 (longest request)
 ab -n 4096 -c 32 http://127.0.0.1:55504/color
 This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
 
 Benchmarking 127.0.0.1 (be patient)
+Completed 409 requests
+Completed 818 requests
+Completed 1227 requests
+Completed 1636 requests
+Completed 2045 requests
+Completed 2454 requests
+Completed 2863 requests
+Completed 3272 requests
+Completed 3681 requests
+Completed 4090 requests
+Finished 4096 requests
 
 
 Server Software:        
@@ -867,40 +931,54 @@ Document Path:          /color
 Document Length:        204 bytes
 
 Concurrency Level:      32
-Time taken for tests:   0.190 seconds
+Time taken for tests:   0.199 seconds
 Complete requests:      4096
 Failed requests:        0
 Write errors:           0
 Total transferred:      1216512 bytes
 HTML transferred:       835584 bytes
-Requests per second:    21524.59 [#/sec] (mean)
-Time per request:       1.487 [ms] (mean)
-Time per request:       0.046 [ms] (mean, across all concurrent requests)
-Transfer rate:          6242.97 [Kbytes/sec] received
+Requests per second:    20610.15 [#/sec] (mean)
+Time per request:       1.553 [ms] (mean)
+Time per request:       0.049 [ms] (mean, across all concurrent requests)
+Transfer rate:          5977.75 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
 Connect:        0    0   0.2      0       1
-Processing:     0    1   0.5      1       8
-Waiting:        0    1   0.5      1       8
-Total:          0    1   0.4      1       8
+Processing:     0    1   0.7      1      13
+Waiting:        0    1   0.7      1      13
+Total:          0    2   0.7      1      13
+WARNING: The median and mean for the total time are not within a normal deviation
+        These results are probably not that reliable.
 
 Percentage of the requests served within a certain time (ms)
   50%      1
-  66%      1
+  66%      2
   75%      2
   80%      2
   90%      2
   95%      2
   98%      3
-  99%      3
- 100%      8 (longest request)
+  99%      4
+ 100%     13 (longest request)
+
 ab -n 4096 -c 64 http://127.0.0.1:55504/color
 This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
 
 Benchmarking 127.0.0.1 (be patient)
+Completed 409 requests
+Completed 818 requests
+Completed 1227 requests
+Completed 1636 requests
+Completed 2045 requests
+Completed 2454 requests
+Completed 2863 requests
+Completed 3272 requests
+Completed 3681 requests
+Completed 4090 requests
+Finished 4096 requests
 
 
 Server Software:        
@@ -911,34 +989,34 @@ Document Path:          /color
 Document Length:        204 bytes
 
 Concurrency Level:      64
-Time taken for tests:   0.184 seconds
+Time taken for tests:   0.213 seconds
 Complete requests:      4096
 Failed requests:        0
 Write errors:           0
 Total transferred:      1216512 bytes
 HTML transferred:       835584 bytes
-Requests per second:    22228.37 [#/sec] (mean)
-Time per request:       2.879 [ms] (mean)
-Time per request:       0.045 [ms] (mean, across all concurrent requests)
-Transfer rate:          6447.10 [Kbytes/sec] received
+Requests per second:    19215.25 [#/sec] (mean)
+Time per request:       3.331 [ms] (mean)
+Time per request:       0.052 [ms] (mean, across all concurrent requests)
+Transfer rate:          5573.17 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0    1   0.4      1       3
-Processing:     0    2   0.8      2       8
-Waiting:        0    2   0.8      2       6
-Total:          1    3   0.7      3       8
+Connect:        0    0   0.3      0       2
+Processing:     1    3   1.1      3      10
+Waiting:        0    3   1.1      3      10
+Total:          1    3   1.0      3      10
 
 Percentage of the requests served within a certain time (ms)
   50%      3
-  66%      3
-  75%      3
-  80%      3
-  90%      4
-  95%      4
-  98%      5
-  99%      5
- 100%      8 (longest request)
+  66%      4
+  75%      4
+  80%      4
+  90%      5
+  95%      5
+  98%      6
+  99%      6
+ 100%     10 (longest request)
 
 
 $ ./bin/ws-rel
@@ -1209,6 +1287,7 @@ Percentage of the requests served within a certain time (ms)
   98%      3
   99%      3
  100%      5 (longest request)
+
 ab -n 4096 -c 64 http://127.0.0.1:55504/color
 This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
@@ -1253,3 +1332,396 @@ Percentage of the requests served within a certain time (ms)
   98%      6
   99%      6
  100%      6 (longest request)
+
+
+ ACTIX-DIESEL
+ =============
+
+ ab -n 4096 -c 1 http://127.0.0.1:55502/color
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 409 requests
+Completed 818 requests
+Completed 1227 requests
+Completed 1636 requests
+Completed 2045 requests
+Completed 2454 requests
+Completed 2863 requests
+Completed 3272 requests
+Completed 3681 requests
+Completed 4090 requests
+Finished 4096 requests
+
+
+Server Software:        
+Server Hostname:        127.0.0.1
+Server Port:            55502
+
+Document Path:          /color
+Document Length:        204 bytes
+
+Concurrency Level:      1
+Time taken for tests:   1.036 seconds
+Complete requests:      4096
+Failed requests:        0
+Write errors:           0
+Total transferred:      1282048 bytes
+HTML transferred:       835584 bytes
+Requests per second:    3952.58 [#/sec] (mean)
+Time per request:       0.253 [ms] (mean)
+Time per request:       0.253 [ms] (mean, across all concurrent requests)
+Transfer rate:          1208.16 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:     0    0   0.1      0       3
+Waiting:        0    0   0.1      0       3
+Total:          0    0   0.1      0       3
+
+Percentage of the requests served within a certain time (ms)
+  50%      0
+  66%      0
+  75%      0
+  80%      0
+  90%      0
+  95%      0
+  98%      0
+  99%      0
+ 100%      3 (longest request)
+ab -n 4096 -c 2 http://127.0.0.1:55502/color
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 409 requests
+Completed 818 requests
+Completed 1227 requests
+Completed 1636 requests
+Completed 2045 requests
+Completed 2454 requests
+Completed 2863 requests
+Completed 3272 requests
+Completed 3681 requests
+Completed 4090 requests
+Finished 4096 requests
+
+
+Server Software:        
+Server Hostname:        127.0.0.1
+Server Port:            55502
+
+Document Path:          /color
+Document Length:        204 bytes
+
+Concurrency Level:      2
+Time taken for tests:   0.546 seconds
+Complete requests:      4096
+Failed requests:        0
+Write errors:           0
+Total transferred:      1282048 bytes
+HTML transferred:       835584 bytes
+Requests per second:    7507.25 [#/sec] (mean)
+Time per request:       0.266 [ms] (mean)
+Time per request:       0.133 [ms] (mean, across all concurrent requests)
+Transfer rate:          2294.70 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:     0    0   0.0      0       2
+Waiting:        0    0   0.0      0       2
+Total:          0    0   0.0      0       2
+
+Percentage of the requests served within a certain time (ms)
+  50%      0
+  66%      0
+  75%      0
+  80%      0
+  90%      0
+  95%      0
+  98%      0
+  99%      0
+ 100%      2 (longest request)
+ab -n 4096 -c 4 http://127.0.0.1:55502/color
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 409 requests
+Completed 818 requests
+Completed 1227 requests
+Completed 1636 requests
+Completed 2045 requests
+Completed 2454 requests
+Completed 2863 requests
+Completed 3272 requests
+Completed 3681 requests
+Completed 4090 requests
+Finished 4096 requests
+
+
+Server Software:        
+Server Hostname:        127.0.0.1
+Server Port:            55502
+
+Document Path:          /color
+Document Length:        204 bytes
+
+Concurrency Level:      4
+Time taken for tests:   0.344 seconds
+Complete requests:      4096
+Failed requests:        0
+Write errors:           0
+Total transferred:      1282048 bytes
+HTML transferred:       835584 bytes
+Requests per second:    11906.91 [#/sec] (mean)
+Time per request:       0.336 [ms] (mean)
+Time per request:       0.084 [ms] (mean, across all concurrent requests)
+Transfer rate:          3639.51 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:     0    0   0.1      0       4
+Waiting:        0    0   0.1      0       4
+Total:          0    0   0.1      0       4
+
+Percentage of the requests served within a certain time (ms)
+  50%      0
+  66%      0
+  75%      0
+  80%      0
+  90%      0
+  95%      0
+  98%      0
+  99%      1
+ 100%      4 (longest request)
+ab -n 4096 -c 8 http://127.0.0.1:55502/color
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 409 requests
+Completed 818 requests
+Completed 1227 requests
+Completed 1636 requests
+Completed 2045 requests
+Completed 2454 requests
+Completed 2863 requests
+Completed 3272 requests
+Completed 3681 requests
+Completed 4090 requests
+Finished 4096 requests
+
+
+Server Software:        
+Server Hostname:        127.0.0.1
+Server Port:            55502
+
+Document Path:          /color
+Document Length:        204 bytes
+
+Concurrency Level:      8
+Time taken for tests:   0.292 seconds
+Complete requests:      4096
+Failed requests:        0
+Write errors:           0
+Total transferred:      1282048 bytes
+HTML transferred:       835584 bytes
+Requests per second:    14022.35 [#/sec] (mean)
+Time per request:       0.571 [ms] (mean)
+Time per request:       0.071 [ms] (mean, across all concurrent requests)
+Transfer rate:          4286.13 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       1
+Processing:     0    0   0.2      0       3
+Waiting:        0    0   0.2      0       3
+Total:          0    1   0.2      1       3
+
+Percentage of the requests served within a certain time (ms)
+  50%      1
+  66%      1
+  75%      1
+  80%      1
+  90%      1
+  95%      1
+  98%      1
+  99%      1
+ 100%      3 (longest request)
+ab -n 4096 -c 16 http://127.0.0.1:55502/color
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 409 requests
+Completed 818 requests
+Completed 1227 requests
+Completed 1636 requests
+Completed 2045 requests
+Completed 2454 requests
+Completed 2863 requests
+Completed 3272 requests
+Completed 3681 requests
+Completed 4090 requests
+Finished 4096 requests
+
+
+Server Software:        
+Server Hostname:        127.0.0.1
+Server Port:            55502
+
+Document Path:          /color
+Document Length:        204 bytes
+
+Concurrency Level:      16
+Time taken for tests:   0.271 seconds
+Complete requests:      4096
+Failed requests:        0
+Write errors:           0
+Total transferred:      1282048 bytes
+HTML transferred:       835584 bytes
+Requests per second:    15102.80 [#/sec] (mean)
+Time per request:       1.059 [ms] (mean)
+Time per request:       0.066 [ms] (mean, across all concurrent requests)
+Transfer rate:          4616.38 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       1
+Processing:     0    1   0.5      1       6
+Waiting:        0    1   0.5      1       6
+Total:          0    1   0.5      1       6
+
+Percentage of the requests served within a certain time (ms)
+  50%      1
+  66%      1
+  75%      1
+  80%      1
+  90%      1
+  95%      2
+  98%      3
+  99%      3
+ 100%      6 (longest request)
+ab -n 4096 -c 32 http://127.0.0.1:55502/color
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 409 requests
+Completed 818 requests
+Completed 1227 requests
+Completed 1636 requests
+Completed 2045 requests
+Completed 2454 requests
+Completed 2863 requests
+Completed 3272 requests
+Completed 3681 requests
+Completed 4090 requests
+Finished 4096 requests
+
+
+Server Software:        
+Server Hostname:        127.0.0.1
+Server Port:            55502
+
+Document Path:          /color
+Document Length:        204 bytes
+
+Concurrency Level:      32
+Time taken for tests:   0.270 seconds
+Complete requests:      4096
+Failed requests:        0
+Write errors:           0
+Total transferred:      1282048 bytes
+HTML transferred:       835584 bytes
+Requests per second:    15185.72 [#/sec] (mean)
+Time per request:       2.107 [ms] (mean)
+Time per request:       0.066 [ms] (mean, across all concurrent requests)
+Transfer rate:          4641.73 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    1   0.2      1       1
+Processing:     0    2   0.8      1       8
+Waiting:        0    1   0.8      1       8
+Total:          0    2   0.8      2       8
+WARNING: The median and mean for the processing time are not within a normal deviation
+        These results are probably not that reliable.
+
+Percentage of the requests served within a certain time (ms)
+  50%      2
+  66%      2
+  75%      2
+  80%      2
+  90%      3
+  95%      4
+  98%      5
+  99%      6
+ 100%      8 (longest request)
+ab -n 4096 -c 64 http://127.0.0.1:55502/color
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 409 requests
+Completed 818 requests
+Completed 1227 requests
+Completed 1636 requests
+Completed 2045 requests
+Completed 2454 requests
+Completed 2863 requests
+Completed 3272 requests
+Completed 3681 requests
+Completed 4090 requests
+Finished 4096 requests
+
+
+Server Software:        
+Server Hostname:        127.0.0.1
+Server Port:            55502
+
+Document Path:          /color
+Document Length:        204 bytes
+
+Concurrency Level:      64
+Time taken for tests:   0.272 seconds
+Complete requests:      4096
+Failed requests:        0
+Write errors:           0
+Total transferred:      1282048 bytes
+HTML transferred:       835584 bytes
+Requests per second:    15034.01 [#/sec] (mean)
+Time per request:       4.257 [ms] (mean)
+Time per request:       0.067 [ms] (mean, across all concurrent requests)
+Transfer rate:          4595.36 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    1   0.3      1       3
+Processing:     1    3   0.9      3       9
+Waiting:        0    2   0.8      2       8
+Total:          1    4   1.0      4      10
+
+Percentage of the requests served within a certain time (ms)
+  50%      4
+  66%      4
+  75%      4
+  80%      5
+  90%      5
+  95%      6
+  98%      7
+  99%      8
+ 100%     10 (longest request)
+
