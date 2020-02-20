@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"database/sql"
 	"encoding/json"
@@ -21,8 +20,6 @@ func doJSONWrite(ctx *fasthttp.RequestCtx, code int, obj interface{}) {
 	ctx.Response.SetStatusCode(code)
 	start := time.Now()
 	if err := json.NewEncoder(ctx).Encode(obj); err != nil {
-		elapsed := time.Since(start)
-		logrus.Errorfp("", elapsed, err.Error(), obj)
 		ctx.Error(err.Error(), fasthttp.StatusInternalServerError)
 	}
 }
@@ -30,7 +27,12 @@ func doJSONWrite(ctx *fasthttp.RequestCtx, code int, obj interface{}) {
 // Index is the index handler
 func Index(ctx *fasthttp.RequestCtx, db *sql.DB) {
 	//fmt.Fprint(ctx, "Welcome!\n")
-	doJSONWrite(ctx, getProducts(db))
+	products, err := getProducts(db)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	doJSONWrite(ctx, 200, products)
 }
 
 func main() {
