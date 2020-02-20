@@ -10,7 +10,7 @@ type color struct {
 	Name  string  `json:"name"`
 }
 
-func getProducts(db *sql.DB, start, count int) ([]color, error) {
+func getProducts(db *sql.DB) ([]color, error) {
 	rows, err := db.Query(
 		"SELECT id, code, name FROM color")
 
