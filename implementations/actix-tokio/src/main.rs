@@ -1,14 +1,12 @@
 #[macro_use]
 extern crate serde_derive;
 
-use std::io::Write;
-
 use actix::prelude::*;
 use actix_http::{HttpService, KeepAlive};
 use actix_service::map_config;
 use actix_web::dev::{AppConfig, Body, Server};
 use actix_web::http::{header::CONTENT_TYPE, header::SERVER, HeaderValue, StatusCode};
-use actix_web::{web, App, Error, HttpRequest, HttpResponse};
+use actix_web::{web, App, Error, HttpResponse};
 use bytes::BytesMut;
 
 mod utils;

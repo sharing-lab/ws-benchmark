@@ -1,15 +1,10 @@
-use std::collections::HashMap;
-use std::fmt::Write;
 use std::io;
 
 use actix::prelude::*;
-use bytes::{Bytes, BytesMut};
-use futures::stream::futures_unordered::FuturesUnordered;
-use futures::{FutureExt, StreamExt, TryStreamExt};
-use tokio_postgres::types::ToSql;
+use futures::{FutureExt, StreamExt};
 use tokio_postgres::{connect, Client, NoTls, Statement};
 
-use crate::utils::{Color, Writer};
+use crate::utils::Color;
 
 /// Postgres interface
 pub struct PgConnection {
