@@ -349,3 +349,137 @@ Percentage of the requests served within a certain time (ms)
 $ ps uxw
   PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 25675 12.3  9.5 2513684 180344 pts/2  Sl+  09:43   0:29 java -jar target/ws_benchmark-1.0.7.jar
+
+
+5. actix-tokio
+==============
+
+actix-tokio]$ ab -n 1000 -c 4 http://127.0.0.1:55519/color
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+
+Server Software:        
+Server Hostname:        127.0.0.1
+Server Port:            55519
+
+Document Path:          /color
+Document Length:        204 bytes
+
+Concurrency Level:      4
+Time taken for tests:   0.328 seconds
+Complete requests:      1000
+Failed requests:        0
+Write errors:           0
+Total transferred:      328000 bytes
+HTML transferred:       204000 bytes
+Requests per second:    3046.20 [#/sec] (mean)
+Time per request:       1.313 [ms] (mean)
+Time per request:       0.328 [ms] (mean, across all concurrent requests)
+Transfer rate:          975.74 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:     1    1   0.5      1       7
+Waiting:        1    1   0.5      1       7
+Total:          1    1   0.5      1       7
+
+Percentage of the requests served within a certain time (ms)
+  50%      1
+  66%      1
+  75%      1
+  80%      1
+  90%      1
+  95%      1
+  98%      1
+  99%      2
+ 100%      7 (longest request)
+
+$ ps uxw
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+fat      13774  0.0  0.1 156780  2376 ?        S    11:33   0:00 sshd: fat@pts/0
+fat      13775  0.0  0.1 115580  2236 pts/0    Ss   11:33   0:00 -bash
+fat      13854  1.2  0.1 155216  3668 pts/0    Sl   11:34   0:00 target/release/actix-web-tokio-pg
+fat      13881  0.0  0.0 155372  1848 pts/0    R+   11:35   0:00 ps uxw
+
+
+6. grip
+=======
+
+$ ab -n 1000 -c 4 http://127.0.0.1:55513/color
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+
+Server Software:        
+Server Hostname:        127.0.0.1
+Server Port:            55513
+
+Document Path:          /color
+Document Length:        204 bytes
+
+Concurrency Level:      4
+Time taken for tests:   0.364 seconds
+Complete requests:      1000
+Failed requests:        0
+Write errors:           0
+Total transferred:      290000 bytes
+HTML transferred:       204000 bytes
+Requests per second:    2746.69 [#/sec] (mean)
+Time per request:       1.456 [ms] (mean)
+Time per request:       0.364 [ms] (mean, across all concurrent requests)
+Transfer rate:          777.87 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:     1    1   0.2      1       2
+Waiting:        1    1   0.2      1       2
+Total:          1    1   0.2      1       2
+
+Percentage of the requests served within a certain time (ms)
+  50%      1
+  66%      1
+  75%      1
+  80%      1
+  90%      2
+  95%      2
+  98%      2
+  99%      2
+ 100%      2 (longest request)
+
+$ ps ux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+fat      13774  0.0  0.1 156780  2376 ?        S    11:33   0:00 sshd: fat@pts/0
+fat      13775  0.0  0.1 115580  2240 pts/0    Ss   11:33   0:00 -bash
+fat      13999  3.2  0.4  88584  7640 pts/0    S    11:41   0:04 ./bin/ws-rel
+fat      14082  0.0  0.0 155372  1848 pts/0    R+   11:44   0:00 ps ux
