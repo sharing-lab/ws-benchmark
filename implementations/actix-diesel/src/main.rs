@@ -38,6 +38,6 @@ fn main() -> std::io::Result<()> {
             .service( web::resource("/color")
                 .route(web::get().to_async(service::list_color)) )
     })
-    .bind("192.168.1.12:55502")?
+    .bind("127.0.0.1:55502")?
     .run()
 }

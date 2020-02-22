@@ -2,10 +2,10 @@ require "./config"
 
 # Server defaults
 port = 55501
-host = "192.168.1.12"
+host = "127.0.0.1"
 
 # Load the routes
-server = ActionController::Server.new(port, host, false)
+server = ActionController::Server.new(port, host, true)
 
 # Start the server
 server.run do
