@@ -14,7 +14,7 @@ mod db;
 use crate::db::{PgConnection, Colors};
 use crate::utils::{Writer};
 
-async fn colors(db: web::Data<Addr<PgConnection>>) -> Result<HttpResponse, Error> {
+async fn list_color(db: web::Data<Addr<PgConnection>>) -> Result<HttpResponse, Error> {
     let res = db.send(Colors).await?;
     if let Ok(worlds) = res {
         let mut body = BytesMut::with_capacity(35 * worlds.len());
@@ -32,6 +32,8 @@ async fn colors(db: web::Data<Addr<PgConnection>>) -> Result<HttpResponse, Error
 
 #[actix_rt::main]
 async fn main() -> std::io::Result<()> {
+    std::env::set_var("RUST_LOG", "actix_web=info");
+    env_logger::init();
     println!("Started http server: 127.0.0.1:55519");
 
     const DB_URL: &str =
@@ -46,7 +48,9 @@ async fn main() -> std::io::Result<()> {
                 .h1(map_config(
                     App::new()
                         .data_factory(|| PgConnection::connect(DB_URL))
-                        .service(web::resource("/db").to(colors)),
+                        // enable logger
+                        .wrap(actix_web::middleware::Logger::default())
+                        .service(web::resource("/color").to(list_color)),
                     |_| AppConfig::default(),
                 ))
                 .tcp()
