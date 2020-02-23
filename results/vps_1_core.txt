@@ -26,460 +26,689 @@ address sizes : 40 bits physical, 48 bits virtual
 power management:
 
 
-1. http4s
-==============
-
-TERMINAL #1 :
--------------
-
-$ java -jar target/scala-2.12/ws-benchmark-assembly-1.0.jar 
-[main] INFO  o.h.b.c.n.NIO1SocketServerGroup - Service bound to address /127.0.0.1:55503 
-[main] INFO  o.h.s.b.BlazeBuilder - 
-  _   _   _        _ _     
- | |_| |_| |_ _ __| | | ___
- | ' \  _|  _| '_ \_  _(_-<
- |_||_\__|\__| .__/ |_|/__/
-             |_| 
-[main] INFO  o.h.s.b.BlazeBuilder - http4s v0.18.22 on blaze v0.12.13 started at http://127.0.0.1:55503/ 
-
-
-TERMINAL #2 :
--------------
-
-$ curl http://127.0.0.1:55503/color
-[{"id":1,"code":"FFFFFF","name":"White"},{"id":2,"code":"C0C0C0","name":"Silver"},{"id":3,"code":"000000","name":"Black"},{"id":4,"code":"0000A0","name":"Dark Blue"},{"id":5,"code":"FF0000","name":"Red"}]
-
-$ ab -n 1000 -c 4 http://127.0.0.1:55503/color
-This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 127.0.0.1 (be patient)
-Completed 100 requests
-Completed 200 requests
-Completed 300 requests
-Completed 400 requests
-Completed 500 requests
-Completed 600 requests
-Completed 700 requests
-Completed 800 requests
-Completed 900 requests
-Completed 1000 requests
-Finished 1000 requests
-
-
-Server Software:        
-Server Hostname:        127.0.0.1
-Server Port:            55503
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      4
-Time taken for tests:   1.992 seconds
-Complete requests:      1000
-Failed requests:        0
-Write errors:           0
-Total transferred:      292000 bytes
-HTML transferred:       204000 bytes
-Requests per second:    502.08 [#/sec] (mean)
-Time per request:       7.967 [ms] (mean)
-Time per request:       1.992 [ms] (mean, across all concurrent requests)
-Transfer rate:          143.17 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:     4    8   2.5      7      21
-Waiting:        1    1   0.8      1      11
-Total:          4    8   2.5      7      21
-
-Percentage of the requests served within a certain time (ms)
-  50%      7
-  66%      7
-  75%      8
-  80%      8
-  90%     10
-  95%     14
-  98%     18
-  99%     18
- 100%     21 (longest request)
-
-
-$ ps uxw
-  PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-25096 18.0 10.3 2516668 195072 pts/4  Sl   09:31   0:41 java -jar target/scala-2.12/ws-benchmark-assembly-1.0.jar
-
-
-
-2. actix-diesel
-===============
-
-TERMINAL 1 :
-------------
-
-$ cargo run --release
-    Finished release [optimized] target(s) in 0.20s
-     Running `target/release/r2d2-example`
-
-
-TERMINAL 2 :
-------------
-
-$ curl http://127.0.0.1:55502/color
-[{"id":1,"code":"FFFFFF","name":"White"},{"id":2,"code":"C0C0C0","name":"Silver"},{"id":3,"code":"000000","name":"Black"},{"id":4,"code":"0000A0","name":"Dark Blue"},{"id":5,"code":"FF0000","name":"Red"}]
-
-$ ab -n 1000 -c 4 http://127.0.0.1:55502/color
-This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 127.0.0.1 (be patient)
-Completed 100 requests
-Completed 200 requests
-Completed 300 requests
-Completed 400 requests
-Completed 500 requests
-Completed 600 requests
-Completed 700 requests
-Completed 800 requests
-Completed 900 requests
-Completed 1000 requests
-Finished 1000 requests
-
-
-Server Software:        
-Server Hostname:        127.0.0.1
-Server Port:            55502
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      4
-Time taken for tests:   0.557 seconds
-Complete requests:      1000
-Failed requests:        0
-Write errors:           0
-Total transferred:      313000 bytes
-HTML transferred:       204000 bytes
-Requests per second:    1796.52 [#/sec] (mean)
-Time per request:       2.227 [ms] (mean)
-Time per request:       0.557 [ms] (mean, across all concurrent requests)
-Transfer rate:          549.13 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:     1    2   0.1      2       3
-Waiting:        1    2   0.1      2       3
-Total:          2    2   0.1      2       3
-
-Percentage of the requests served within a certain time (ms)
-  50%      2
-  66%      2
-  75%      2
-  80%      2
-  90%      2
-  95%      2
-  98%      3
-  99%      3
- 100%      3 (longest request)
-
-
-$ ps uxw
-  PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-25272  1.4  0.2 628604  5560 pts/4    Sl   09:37   0:02 target/release/r2d2-example
-
-
-
-3. spider-g
-===========
-
-TERMINAL 1 :
-
-$ ./bin/ws-rel 
-Listening on http://127.0.0.1:55501
-
-
-TERMINAL 2 :
+1. spider-gazelle
+=================
 
 $ curl http://127.0.0.1:55501/color
 [{"id":1,"code":"FFFFFF","name":"White"},{"id":2,"code":"C0C0C0","name":"Silver"},{"id":3,"code":"000000","name":"Black"},{"id":4,"code":"0000A0","name":"Dark Blue"},{"id":5,"code":"FF0000","name":"Red"}]
 
-$ ab -n 1000 -c 4 http://127.0.0.1:55501/color
-This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
+wrk -t1 -c1 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 1 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   311.20us   69.94us   2.85ms   94.73%
+    Req/Sec     3.19k   181.23     3.56k    69.76%
+  30167 requests in 10.00s, 8.63MB read
+Requests/sec:   3016.76
+Transfer/sec:      0.86MB
 
-Benchmarking 127.0.0.1 (be patient)
-Completed 100 requests
-Completed 200 requests
-Completed 300 requests
-Completed 400 requests
-Completed 500 requests
-Completed 600 requests
-Completed 700 requests
-Completed 800 requests
-Completed 900 requests
-Completed 1000 requests
-Finished 1000 requests
+wrk -t1 -c2 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 2 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   616.33us   78.02us   1.52ms   88.20%
+    Req/Sec     3.31k   208.85     3.78k    74.82%
+  31566 requests in 10.00s, 9.03MB read
+Requests/sec:   3156.67
+Transfer/sec:      0.90MB
 
+wrk -t1 -c4 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 4 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.03ms  100.69us   1.96ms   92.59%
+    Req/Sec     3.94k   155.07     4.44k    85.82%
+  36980 requests in 10.00s, 10.58MB read
+Requests/sec:   3698.13
+Transfer/sec:      1.06MB
 
-Server Software:        
-Server Hostname:        127.0.0.1
-Server Port:            55501
+wrk -t1 -c8 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 8 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.94ms  221.87us   7.35ms   96.17%
+    Req/Sec     4.15k   386.64     4.80k    79.26%
+  39384 requests in 10.00s, 11.27MB read
+Requests/sec:   3938.23
+Transfer/sec:      1.13MB
 
-Document Path:          /color
-Document Length:        204 bytes
+wrk -t1 -c16 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 16 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     3.74ms  249.38us   9.36ms   92.73%
+    Req/Sec     4.30k   670.41     5.33k    62.73%
+  40800 requests in 10.00s, 11.67MB read
+Requests/sec:   4078.80
+Transfer/sec:      1.17MB
 
-Concurrency Level:      4
-Time taken for tests:   0.364 seconds
-Complete requests:      1000
-Failed requests:        0
-Write errors:           0
-Total transferred:      276000 bytes
-HTML transferred:       204000 bytes
-Requests per second:    2750.41 [#/sec] (mean)
-Time per request:       1.454 [ms] (mean)
-Time per request:       0.364 [ms] (mean, across all concurrent requests)
-Transfer rate:          741.32 [Kbytes/sec] received
+wrk -t1 -c32 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 32 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     7.88ms    3.03ms  30.79ms   96.31%
+    Req/Sec     4.14k   653.06     5.65k    92.60%
+  40128 requests in 10.00s, 11.48MB read
+Requests/sec:   4011.92
+Transfer/sec:      1.15MB
 
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:     1    1   0.2      1       4
-Waiting:        1    1   0.2      1       4
-Total:          1    1   0.2      1       4
-
-Percentage of the requests served within a certain time (ms)
-  50%      1
-  66%      1
-  75%      1
-  80%      1
-  90%      2
-  95%      2
-  98%      2
-  99%      2
- 100%      4 (longest request)
-
-
-$ ps uxw
-  PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-25841  0.8  0.4  90656  7660 pts/4    S    09:49   0:00 ./bin/ws-rel
-25894  0.0  0.0 155372  1852 pts/2    R+   09:51   0:00 ps uxw
-
-
-
-4. spring
-=========
-
-terminal 1:
------------
-$ java -jar target/ws_benchmark-1.0.7.jar
-
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::        (v2.0.1.RELEASE)
-
-2020-02-06 09:16:37.282  INFO 24698 --- [           main] org.ws_benchmark.Server                  : Starting Server v1.0.7
+wrk -t1 -c64 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 64 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    15.03ms  723.48us  24.60ms   82.79%
+    Req/Sec     4.13k   372.01     5.65k    87.46%
+  40640 requests in 10.01s, 11.63MB read
+Requests/sec:   4058.40
+Transfer/sec:      1.16MB
 
 
-terminal 2:
------------
-$ ab -n 1000 -c 4 http://127.0.0.1:55506/color
-This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
+2. spider-gazelle-mt
+====================
 
-Benchmarking 127.0.0.1 (be patient)
-Completed 100 requests
-Completed 200 requests
-Completed 300 requests
-Completed 400 requests
-Completed 500 requests
-Completed 600 requests
-Completed 700 requests
-Completed 800 requests
-Completed 900 requests
-Completed 1000 requests
-Finished 1000 requests
+$ curl http://127.0.0.1:55501/color
+[{"id":1,"code":"FFFFFF","name":"White"},{"id":2,"code":"C0C0C0","name":"Silver"},{"id":3,"code":"000000","name":"Black"},{"id":4,"code":"0000A0","name":"Dark Blue"},{"id":5,"code":"FF0000","name":"Red"}]
 
+wrk -t1 -c1 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 1 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   312.34us   84.57us   2.02ms   96.56%
+    Req/Sec     3.21k   207.08     3.56k    62.49%
+  30462 requests in 10.00s, 8.72MB read
+Requests/sec:   3046.36
+Transfer/sec:      0.87MB
 
-Server Software:        
-Server Hostname:        127.0.0.1
-Server Port:            55506
+wrk -t1 -c2 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 2 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   641.61us  175.79us   3.35ms   86.41%
+    Req/Sec     3.21k   177.94     3.56k    67.23%
+  30426 requests in 10.00s, 8.70MB read
+Requests/sec:   3042.74
+Transfer/sec:      0.87MB
 
-Document Path:          /color
-Document Length:        204 bytes
+wrk -t1 -c4 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 4 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.27ms  574.53us   8.43ms   76.64%
+    Req/Sec     3.29k   201.72     3.70k    79.66%
+  31268 requests in 10.00s, 8.95MB read
+Requests/sec:   3126.82
+Transfer/sec:      0.89MB
 
-Concurrency Level:      4
-Time taken for tests:   0.971 seconds
-Complete requests:      1000
-Failed requests:        0
-Write errors:           0
-Total transferred:      323000 bytes
-HTML transferred:       204000 bytes
-Requests per second:    1029.87 [#/sec] (mean)
-Time per request:       3.884 [ms] (mean)
-Time per request:       0.971 [ms] (mean, across all concurrent requests)
-Transfer rate:          324.85 [Kbytes/sec] received
+wrk -t1 -c8 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 8 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     2.44ms    1.80ms  28.90ms   97.95%
+    Req/Sec     3.57k   551.33     4.44k    84.34%
+  33557 requests in 10.00s, 9.60MB read
+Requests/sec:   3355.82
+Transfer/sec:      0.96MB
 
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:     2    4   2.3      3      20
-Waiting:        2    4   2.3      3      20
-Total:          3    4   2.3      3      20
+wrk -t1 -c16 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 16 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     4.29ms    0.96ms  14.17ms   84.41%
+    Req/Sec     3.86k   470.75     5.33k    66.56%
+  36585 requests in 10.00s, 10.47MB read
+Requests/sec:   3658.68
+Transfer/sec:      1.05MB
 
-Percentage of the requests served within a certain time (ms)
-  50%      3
-  66%      3
-  75%      3
-  80%      3
-  90%      4
-  95%      7
-  98%     14
-  99%     14
- 100%     20 (longest request)
+wrk -t1 -c32 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 32 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     8.41ms    1.60ms  20.46ms   85.19%
+    Req/Sec     3.88k   267.92     4.89k    74.07%
+  37646 requests in 10.00s, 10.77MB read
+Requests/sec:   3764.44
+Transfer/sec:      1.08MB
 
-$ ps uxw
-  PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-25675 12.3  9.5 2513684 180344 pts/2  Sl+  09:43   0:29 java -jar target/ws_benchmark-1.0.7.jar
-
-
-5. actix-tokio
-==============
-
-actix-tokio]$ ab -n 1000 -c 4 http://127.0.0.1:55519/color
-This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 127.0.0.1 (be patient)
-Completed 100 requests
-Completed 200 requests
-Completed 300 requests
-Completed 400 requests
-Completed 500 requests
-Completed 600 requests
-Completed 700 requests
-Completed 800 requests
-Completed 900 requests
-Completed 1000 requests
-Finished 1000 requests
+wrk -t1 -c64 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 64 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.49ms    2.87ms  37.20ms   84.56%
+    Req/Sec     3.91k   304.87     4.68k    63.67%
+  38518 requests in 10.00s, 11.02MB read
+Requests/sec:   3851.33
+Transfer/sec:      1.10MB
 
 
-Server Software:        
-Server Hostname:        127.0.0.1
-Server Port:            55519
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      4
-Time taken for tests:   0.328 seconds
-Complete requests:      1000
-Failed requests:        0
-Write errors:           0
-Total transferred:      328000 bytes
-HTML transferred:       204000 bytes
-Requests per second:    3046.20 [#/sec] (mean)
-Time per request:       1.313 [ms] (mean)
-Time per request:       0.328 [ms] (mean, across all concurrent requests)
-Transfer rate:          975.74 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:     1    1   0.5      1       7
-Waiting:        1    1   0.5      1       7
-Total:          1    1   0.5      1       7
-
-Percentage of the requests served within a certain time (ms)
-  50%      1
-  66%      1
-  75%      1
-  80%      1
-  90%      1
-  95%      1
-  98%      1
-  99%      2
- 100%      7 (longest request)
-
-$ ps uxw
-USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-fat      13774  0.0  0.1 156780  2376 ?        S    11:33   0:00 sshd: fat@pts/0
-fat      13775  0.0  0.1 115580  2236 pts/0    Ss   11:33   0:00 -bash
-fat      13854  1.2  0.1 155216  3668 pts/0    Sl   11:34   0:00 target/release/actix-web-tokio-pg
-fat      13881  0.0  0.0 155372  1848 pts/0    R+   11:35   0:00 ps uxw
-
-
-6. grip
+3. grip
 =======
 
-$ ab -n 1000 -c 4 http://127.0.0.1:55513/color
-This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
+$ curl http://127.0.0.1:55513/color
+[{"id":1,"code":"FFFFFF","name":"White"},{"id":2,"code":"C0C0C0","name":"Silver"},{"id":3,"code":"000000","name":"Black"},{"id":4,"code":"0000A0","name":"Dark Blue"},{"id":5,"code":"FF0000","name":"Red"}]
 
-Benchmarking 127.0.0.1 (be patient)
-Completed 100 requests
-Completed 200 requests
-Completed 300 requests
-Completed 400 requests
-Completed 500 requests
-Completed 600 requests
-Completed 700 requests
-Completed 800 requests
-Completed 900 requests
-Completed 1000 requests
-Finished 1000 requests
+wrk -t1 -c1 -d10s http://127.0.0.1:55513/color
+Running 10s test @ http://127.0.0.1:55513/color
+  1 threads and 1 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   303.30us   53.34us   1.14ms   91.11%
+    Req/Sec     3.26k   182.21     3.56k    86.83%
+  30919 requests in 10.00s, 9.26MB read
+Requests/sec:   3092.05
+Transfer/sec:      0.93MB
+
+wrk -t1 -c2 -d10s http://127.0.0.1:55513/color
+Running 10s test @ http://127.0.0.1:55513/color
+  1 threads and 2 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   550.28us  133.36us   4.39ms   97.44%
+    Req/Sec     3.63k   217.56     4.00k    82.19%
+  34466 requests in 10.00s, 10.32MB read
+Requests/sec:   3446.78
+Transfer/sec:      1.03MB
+
+wrk -t1 -c4 -d10s http://127.0.0.1:55513/color
+Running 10s test @ http://127.0.0.1:55513/color
+  1 threads and 4 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.08ms  163.96us   6.64ms   96.39%
+    Req/Sec     3.76k   246.34     4.33k    92.19%
+  35755 requests in 10.00s, 10.71MB read
+Requests/sec:   3575.42
+Transfer/sec:      1.07MB
+
+wrk -t1 -c8 -d10s http://127.0.0.1:55513/color
+Running 10s test @ http://127.0.0.1:55513/color
+  1 threads and 8 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.92ms  156.83us   3.43ms   89.13%
+    Req/Sec     4.20k   384.76     5.33k    73.58%
+  39870 requests in 10.00s, 11.94MB read
+Requests/sec:   3987.16
+Transfer/sec:      1.19MB
+
+wrk -t1 -c16 -d10s http://127.0.0.1:55513/color
+Running 10s test @ http://127.0.0.1:55513/color
+  1 threads and 16 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     4.05ms    2.39ms  25.97ms   97.08%
+    Req/Sec     4.20k   770.54     5.33k    76.09%
+  40056 requests in 10.00s, 11.99MB read
+Requests/sec:   4004.96
+Transfer/sec:      1.20MB
+
+wrk -t1 -c32 -d10s http://127.0.0.1:55513/color
+Running 10s test @ http://127.0.0.1:55513/color
+  1 threads and 32 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     7.19ms  414.83us  13.23ms   89.71%
+    Req/Sec     4.39k   466.94     6.00k    87.91%
+  42368 requests in 10.00s, 12.69MB read
+Requests/sec:   4234.85
+Transfer/sec:      1.27MB
+
+wrk -t1 -c64 -d10s http://127.0.0.1:55513/color
+Running 10s test @ http://127.0.0.1:55513/color
+  1 threads and 64 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    14.83ms  621.93us  20.08ms   74.80%
+    Req/Sec     4.19k   805.39     5.82k    68.38%
+  41088 requests in 10.00s, 12.30MB read
+Requests/sec:   4107.57
+Transfer/sec:      1.23MB
 
 
-Server Software:        
-Server Hostname:        127.0.0.1
-Server Port:            55513
+4. grip-mt
+==========
 
-Document Path:          /color
-Document Length:        204 bytes
+wrk -t1 -c1 -d10s http://127.0.0.1:55513/color
+Running 10s test @ http://127.0.0.1:55513/color
+  1 threads and 1 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   367.96us    1.10ms  22.39ms   99.57%
+    Req/Sec     3.17k   466.55     3.56k    94.89%
+  29922 requests in 10.00s, 8.96MB read
+Requests/sec:   2992.32
+Transfer/sec:      0.90MB
 
-Concurrency Level:      4
-Time taken for tests:   0.364 seconds
-Complete requests:      1000
-Failed requests:        0
-Write errors:           0
-Total transferred:      290000 bytes
-HTML transferred:       204000 bytes
-Requests per second:    2746.69 [#/sec] (mean)
-Time per request:       1.456 [ms] (mean)
-Time per request:       0.364 [ms] (mean, across all concurrent requests)
-Transfer rate:          777.87 [Kbytes/sec] received
+wrk -t1 -c2 -d10s http://127.0.0.1:55513/color
+Running 10s test @ http://127.0.0.1:55513/color
+  1 threads and 2 connections
 
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:     1    1   0.2      1       2
-Waiting:        1    1   0.2      1       2
-Total:          1    1   0.2      1       2
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   624.37us  184.94us   3.01ms   81.03%
+    Req/Sec     3.26k   199.40     3.67k    81.66%
+  30904 requests in 10.00s, 9.25MB read
+Requests/sec:   3090.56
+Transfer/sec:      0.93MB
 
-Percentage of the requests served within a certain time (ms)
-  50%      1
-  66%      1
-  75%      1
-  80%      1
-  90%      2
-  95%      2
-  98%      2
-  99%      2
- 100%      2 (longest request)
+wrk -t1 -c4 -d10s http://127.0.0.1:55513/color
+Running 10s test @ http://127.0.0.1:55513/color
+  1 threads and 4 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.24ms  329.65us   6.41ms   77.82%
+    Req/Sec     3.32k   183.26     3.67k    72.12%
+  31431 requests in 10.00s, 9.41MB read
+Requests/sec:   3142.97
+Transfer/sec:      0.94MB
 
-$ ps ux
-USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-fat      13774  0.0  0.1 156780  2376 ?        S    11:33   0:00 sshd: fat@pts/0
-fat      13775  0.0  0.1 115580  2240 pts/0    Ss   11:33   0:00 -bash
-fat      13999  3.2  0.4  88584  7640 pts/0    S    11:41   0:04 ./bin/ws-rel
-fat      14082  0.0  0.0 155372  1848 pts/0    R+   11:44   0:00 ps ux
+wrk -t1 -c8 -d10s http://127.0.0.1:55513/color
+Running 10s test @ http://127.0.0.1:55513/color
+  1 threads and 8 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     2.20ms  676.20us  10.72ms   82.45%
+    Req/Sec     3.72k   328.41     4.44k    79.26%
+  35310 requests in 10.00s, 10.57MB read
+Requests/sec:   3530.72
+Transfer/sec:      1.06MB
+
+wrk -t1 -c16 -d10s http://127.0.0.1:55513/color
+Running 10s test @ http://127.0.0.1:55513/color
+  1 threads and 16 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     4.11ms    1.14ms  14.48ms   78.74%
+    Req/Sec     4.01k   513.96     5.33k    73.37%
+  38136 requests in 10.00s, 11.42MB read
+Requests/sec:   3813.49
+Transfer/sec:      1.14MB
+
+wrk -t1 -c32 -d10s http://127.0.0.1:55513/color
+Running 10s test @ http://127.0.0.1:55513/color
+  1 threads and 32 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     7.86ms    1.82ms  22.13ms   77.56%
+    Req/Sec     4.06k   399.67     5.33k    71.38%
+  39345 requests in 10.00s, 11.78MB read
+Requests/sec:   3933.84
+Transfer/sec:      1.18MB
+
+wrk -t1 -c64 -d10s http://127.0.0.1:55513/color
+Running 10s test @ http://127.0.0.1:55513/color
+  1 threads and 64 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    17.08ms    4.91ms  43.53ms   81.80%
+    Req/Sec     3.80k   505.64     4.85k    80.38%
+  37450 requests in 10.00s, 11.21MB read
+Requests/sec:   3744.19
+Transfer/sec:      1.12MB
+
+5. actix-diesel
+===============
+
+$ curl http://127.0.0.1:55502/color
+[{"id":1,"code":"FFFFFF","name":"White"},{"id":2,"code":"C0C0C0","name":"Silver"},{"id":3,"code":"000000","name":"Black"},{"id":4,"code":"0000A0","name":"Dark Blue"},{"id":5,"code":"FF0000","name":"Red"}]
+
+wrk -t1 -c1 -d10s http://127.0.0.1:55502/color
+Running 10s test @ http://127.0.0.1:55502/color
+  1 threads and 1 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   511.70us   51.71us   1.36ms   76.32%
+    Req/Sec     1.99k   109.71     2.22k    64.42%
+  18840 requests in 10.00s, 5.62MB read
+Requests/sec:   1884.04
+Transfer/sec:    575.88KB
+
+wrk -t1 -c2 -d10s http://127.0.0.1:55502/color
+Running 10s test @ http://127.0.0.1:55502/color
+  1 threads and 2 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     0.90ms   61.68us   1.58ms   77.17%
+    Req/Sec     2.23k    74.99     2.44k    89.25%
+  21440 requests in 10.00s, 6.40MB read
+Requests/sec:   2144.06
+Transfer/sec:    655.36KB
+
+wrk -t1 -c4 -d10s http://127.0.0.1:55502/color
+Running 10s test @ http://127.0.0.1:55502/color
+  1 threads and 4 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.68ms  157.99us   7.57ms   94.84%
+    Req/Sec     2.40k   173.00     2.80k    60.45%
+  23020 requests in 10.00s, 6.87MB read
+Requests/sec:   2302.01
+Transfer/sec:    703.64KB
+
+wrk -t1 -c8 -d10s http://127.0.0.1:55502/color
+Running 10s test @ http://127.0.0.1:55502/color
+  1 threads and 8 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     3.23ms  153.69us   7.50ms   86.21%
+    Req/Sec     2.54k   203.80     3.20k    93.71%
+  24016 requests in 10.00s, 7.17MB read
+Requests/sec:   2401.25
+Transfer/sec:    733.98KB
+
+wrk -t1 -c16 -d10s http://127.0.0.1:55502/color
+Running 10s test @ http://127.0.0.1:55502/color
+  1 threads and 16 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     6.95ms    3.26ms  28.22ms   95.25%
+    Req/Sec     2.52k   598.49     3.69k    82.95%
+  23840 requests in 10.00s, 7.12MB read
+Requests/sec:   2383.21
+Transfer/sec:    728.46KB
+
+wrk -t1 -c32 -d10s http://127.0.0.1:55502/color
+Running 10s test @ http://127.0.0.1:55502/color
+  1 threads and 32 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    12.45ms  489.71us  18.52ms   92.34%
+    Req/Sec     2.55k   198.57     2.67k    97.60%
+  25000 requests in 10.00s, 7.46MB read
+Requests/sec:   2499.50
+Transfer/sec:    764.01KB
+
+wrk -t1 -c64 -d10s http://127.0.0.1:55502/color
+Running 10s test @ http://127.0.0.1:55502/color
+  1 threads and 64 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    25.00ms  585.63us  30.62ms   83.28%
+    Req/Sec     2.52k    34.49     2.57k    58.38%
+  24894 requests in 10.00s, 7.43MB read
+Requests/sec:   2488.44
+Transfer/sec:    760.63KB
+
+
+6. actix-tokio
+==============
+
+$ curl http://127.0.0.1:55519/color
+[{"id":1,"code":"FFFFFF","name":"White"},{"id":2,"code":"C0C0C0","name":"Silver"},{"id":3,"code":"000000","name":"Black"},{"id":4,"code":"0000A0","name":"Dark Blue"},{"id":5,"code":"FF0000","name":"Red"}]
+
+wrk -t1 -c1 -d10s http://127.0.0.1:55519/color
+Running 10s test @ http://127.0.0.1:55519/color
+  1 threads and 1 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   288.07us  109.33us   5.88ms   98.55%
+    Req/Sec     3.46k   226.91     3.78k    85.99%
+  32782 requests in 10.00s, 10.25MB read
+Requests/sec:   3278.36
+Transfer/sec:      1.03MB
+
+wrk -t1 -c2 -d10s http://127.0.0.1:55519/color
+Running 10s test @ http://127.0.0.1:55519/color
+  1 threads and 2 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   425.08us   45.97us   1.20ms   75.38%
+    Req/Sec     4.63k   235.97     5.11k    64.91%
+  43762 requests in 10.00s, 13.69MB read
+Requests/sec:   4376.40
+Transfer/sec:      1.37MB
+
+wrk -t1 -c4 -d10s http://127.0.0.1:55519/color
+Running 10s test @ http://127.0.0.1:55519/color
+  1 threads and 4 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   830.59us    1.61ms  22.94ms   99.11%
+    Req/Sec     5.51k   723.31     6.22k    95.83%
+  51744 requests in 10.00s, 16.19MB read
+Requests/sec:   5174.31
+Transfer/sec:      1.62MB
+
+wrk -t1 -c8 -d10s http://127.0.0.1:55519/color
+Running 10s test @ http://127.0.0.1:55519/color
+  1 threads and 8 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.26ms  101.31us   5.54ms   86.52%
+    Req/Sec     6.23k   308.42     7.00k    81.26%
+  59415 requests in 10.00s, 18.59MB read
+Requests/sec:   5941.72
+Transfer/sec:      1.86MB
+
+wrk -t1 -c16 -d10s http://127.0.0.1:55519/color
+Running 10s test @ http://127.0.0.1:55519/color
+  1 threads and 16 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     2.39ms  154.38us   6.16ms   78.86%
+    Req/Sec     6.59k   401.40     8.00k    72.20%
+  63179 requests in 10.00s, 19.76MB read
+Requests/sec:   6317.86
+Transfer/sec:      1.98MB
+
+wrk -t1 -c32 -d10s http://127.0.0.1:55519/color
+Running 10s test @ http://127.0.0.1:55519/color
+  1 threads and 32 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     4.44ms  205.80us   7.07ms   80.61%
+    Req/Sec     7.20k   574.70     9.60k    73.65%
+  68719 requests in 10.00s, 21.50MB read
+Requests/sec:   6871.72
+Transfer/sec:      2.15MB
+
+wrk -t1 -c64 -d10s http://127.0.0.1:55519/color
+Running 10s test @ http://127.0.0.1:55519/color
+  1 threads and 64 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     8.25ms  346.07us  13.65ms   85.71%
+    Req/Sec     7.44k   294.67     8.53k    81.27%
+  71808 requests in 10.00s, 22.46MB read
+Requests/sec:   7179.42
+Transfer/sec:      2.25MB
+
+
+7. spring
+=========
+
+$ curl http://127.0.0.1:55506/color
+[{"id":1,"code":"FFFFFF","name":"White"},{"id":2,"code":"C0C0C0","name":"Silver"},{"id":3,"code":"000000","name":"Black"},{"id":4,"code":"0000A0","name":"Dark Blue"},{"id":5,"code":"FF0000","name":"Red"}]
+
+wrk -t1 -c1 -d10s http://127.0.0.1:55506/color
+Running 10s test @ http://127.0.0.1:55506/color
+  1 threads and 1 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.53ms    2.83ms  12.80ms   93.27%
+    Req/Sec     1.11k   415.25     1.44k    82.69%
+  10065 requests in 10.00s, 3.29MB read
+Requests/sec:   1006.50
+Transfer/sec:    337.32KB
+
+wrk -t1 -c2 -d10s http://127.0.0.1:55506/color
+Running 10s test @ http://127.0.0.1:55506/color
+  1 threads and 2 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     3.01ms    6.93ms  46.50ms   94.45%
+    Req/Sec     1.14k   374.10     1.44k    85.05%
+  10386 requests in 10.00s, 3.40MB read
+Requests/sec:   1038.64
+Transfer/sec:    348.10KB
+
+wrk -t1 -c4 -d10s http://127.0.0.1:55506/color
+Running 10s test @ http://127.0.0.1:55506/color
+  1 threads and 4 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     3.70ms    3.28ms  55.44ms   95.69%
+    Req/Sec     1.22k   242.67     1.55k    90.15%
+  11353 requests in 10.00s, 3.72MB read
+Requests/sec:   1135.29
+Transfer/sec:    380.49KB
+
+wrk -t1 -c8 -d10s http://127.0.0.1:55506/color
+Running 10s test @ http://127.0.0.1:55506/color
+  1 threads and 8 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     6.57ms    3.59ms  76.05ms   93.33%
+    Req/Sec     1.33k   227.47     1.62k    87.26%
+  12495 requests in 10.01s, 4.09MB read
+Requests/sec:   1248.87
+Transfer/sec:    418.55KB
+
+wrk -t1 -c16 -d10s http://127.0.0.1:55506/color
+Running 10s test @ http://127.0.0.1:55506/color
+  1 threads and 16 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    12.08ms    2.87ms  31.97ms   88.27%
+    Req/Sec     1.30k   110.48     1.46k    62.83%
+  12541 requests in 10.00s, 4.10MB read
+Requests/sec:   1254.07
+Transfer/sec:    420.27KB
+
+wrk -t1 -c32 -d10s http://127.0.0.1:55506/color
+Running 10s test @ http://127.0.0.1:55506/color
+  1 threads and 32 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.76ms    3.87ms  45.27ms   84.67%
+    Req/Sec     1.34k   117.85     1.48k    81.02%
+  13294 requests in 10.01s, 4.35MB read
+Requests/sec:   1328.39
+Transfer/sec:    445.20KB
+
+wrk -t1 -c64 -d10s http://127.0.0.1:55506/color
+Running 10s test @ http://127.0.0.1:55506/color
+  1 threads and 64 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    47.20ms    6.20ms  97.63ms   79.91%
+    Req/Sec     1.34k    90.37     1.49k    70.15%
+  13357 requests in 10.01s, 4.37MB read
+Requests/sec:   1334.75
+Transfer/sec:    447.33KB
+
+
+8. fasthttp-router
+==================
+
+$ curl http://127.0.0.1:55518/color
+[{"id":1,"code":"FFFFFF","name":"White"},{"id":2,"code":"C0C0C0","name":"Silver"},{"id":3,"code":"000000","name":"Black"},{"id":4,"code":"0000A0","name":"Dark Blue"},{"id":5,"code":"FF0000","name":"Red"}]
+
+wrk -t1 -c1 -d10s http://127.0.0.1:55518/color
+Running 10s test @ http://127.0.0.1:55518/color
+  1 threads and 1 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   324.03us   59.81us   1.61ms   87.85%
+    Req/Sec     3.08k   216.50     3.44k    68.49%
+  29166 requests in 10.00s, 9.40MB read
+Requests/sec:   2916.71
+Transfer/sec:      0.94MB
+
+wrk -t1 -c2 -d10s http://127.0.0.1:55518/color
+Running 10s test @ http://127.0.0.1:55518/color
+  1 threads and 2 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   668.09us    1.44ms  22.62ms   98.98%
+    Req/Sec     3.58k   529.45     4.22k    94.43%
+  33622 requests in 10.00s, 10.84MB read
+Requests/sec:   3362.31
+Transfer/sec:      1.08MB
+
+wrk -t1 -c4 -d10s http://127.0.0.1:55518/color
+Running 10s test @ http://127.0.0.1:55518/color
+  1 threads and 4 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     0.94ms   95.29us   2.21ms   86.53%
+    Req/Sec     4.23k   275.87     4.44k    95.15%
+  40040 requests in 10.00s, 12.91MB read
+Requests/sec:   4003.97
+Transfer/sec:      1.29MB
+
+wrk -t1 -c8 -d10s http://127.0.0.1:55518/color
+Running 10s test @ http://127.0.0.1:55518/color
+  1 threads and 8 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.69ms  168.08us   5.88ms   92.91%
+    Req/Sec     4.69k   502.06     5.60k    50.64%
+  44633 requests in 10.00s, 14.39MB read
+Requests/sec:   4463.12
+Transfer/sec:      1.44MB
+
+wrk -t1 -c16 -d10s http://127.0.0.1:55518/color
+Running 10s test @ http://127.0.0.1:55518/color
+  1 threads and 16 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     3.39ms  283.90us   9.59ms   92.23%
+    Req/Sec     4.77k   350.70     6.00k    76.50%
+  45697 requests in 10.00s, 14.73MB read
+Requests/sec:   4569.27
+Transfer/sec:      1.47MB
+
+wrk -t1 -c32 -d10s http://127.0.0.1:55518/color
+Running 10s test @ http://127.0.0.1:55518/color
+  1 threads and 32 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     6.11ms  336.12us   9.16ms   85.09%
+    Req/Sec     5.16k   491.79     7.38k    92.50%
+  49408 requests in 10.00s, 15.93MB read
+Requests/sec:   4940.67
+Transfer/sec:      1.59MB
+
+wrk -t1 -c64 -d10s http://127.0.0.1:55518/color
+Running 10s test @ http://127.0.0.1:55518/color
+  1 threads and 64 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    11.85ms  603.68us  14.77ms   83.51%
+    Req/Sec     5.26k     1.23k    7.11k    47.50%
+  51008 requests in 10.01s, 16.44MB read
+Requests/sec:   5097.79
+Transfer/sec:      1.64MB
+
+
+9. grip-mt-2
+=============
+
+wrk -t1 -c1 -d10s http://127.0.0.1:55513/color
+Running 10s test @ http://127.0.0.1:55513/color
+  1 threads and 1 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   302.72us   48.44us   1.24ms   87.07%
+    Req/Sec     3.27k   195.14     3.67k    79.45%
+  31018 requests in 10.00s, 9.29MB read
+Requests/sec:   3101.88
+Transfer/sec:      0.93MB
+
+wrk -t1 -c2 -d10s http://127.0.0.1:55513/color
+Running 10s test @ http://127.0.0.1:55513/color
+  1 threads and 2 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   725.73us    1.21ms  21.97ms   99.00%
+    Req/Sec     3.16k   459.06     3.67k    95.62%
+  29766 requests in 10.00s, 8.91MB read
+Requests/sec:   2976.69
+Transfer/sec:      0.89MB
+
+wrk -t1 -c4 -d10s http://127.0.0.1:55513/color
+Running 10s test @ http://127.0.0.1:55513/color
+  1 threads and 4 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.21ms  314.76us   7.36ms   89.91%
+    Req/Sec     3.44k   229.86     4.00k    63.65%
+  32693 requests in 10.00s, 9.79MB read
+Requests/sec:   3269.41
+Transfer/sec:      0.98MB
+
+wrk -t1 -c8 -d10s http://127.0.0.1:55513/color
+Running 10s test @ http://127.0.0.1:55513/color
+  1 threads and 8 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     2.18ms  378.82us   6.09ms   84.78%
+    Req/Sec     3.82k   257.38     4.89k    75.69%
+  36355 requests in 10.00s, 10.89MB read
+Requests/sec:   3635.48
+Transfer/sec:      1.09MB
+
+wrk -t1 -c16 -d10s http://127.0.0.1:55513/color
+Running 10s test @ http://127.0.0.1:55513/color
+  1 threads and 16 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     4.10ms  649.07us   9.02ms   84.27%
+    Req/Sec     4.06k   432.76     5.33k    71.81%
+  38435 requests in 10.00s, 11.51MB read
+Requests/sec:   3843.13
+Transfer/sec:      1.15MB
+
+wrk -t1 -c32 -d10s http://127.0.0.1:55513/color
+Running 10s test @ http://127.0.0.1:55513/color
+  1 threads and 32 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     7.90ms    1.32ms  20.75ms   82.23%
+    Req/Sec     4.12k   486.99     5.65k    69.13%
+  39960 requests in 10.00s, 11.97MB read
+Requests/sec:   3995.89
+Transfer/sec:      1.20MB
+
+wrk -t1 -c64 -d10s http://127.0.0.1:55513/color
+Running 10s test @ http://127.0.0.1:55513/color
+  1 threads and 64 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    15.60ms    2.46ms  29.57ms   78.30%
+    Req/Sec     4.10k   353.32     5.00k    65.53%
+  40387 requests in 10.01s, 12.09MB read
+Requests/sec:   4035.12
+Transfer/sec:      1.21MB
+
