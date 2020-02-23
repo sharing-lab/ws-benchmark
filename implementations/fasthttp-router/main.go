@@ -5,6 +5,7 @@ import (
 	"database/sql"
 	"encoding/json"
 
+	"github.com/AubSs/fasthttplogger"
 	"github.com/fasthttp/router"
 	"github.com/valyala/fasthttp"
 	_ "github.com/lib/pq"
@@ -44,11 +45,15 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	db.SetMaxIdleConns(100)
 
 	r := router.New()
-	r.GET("/", Index)
+	r.GET("/color", Index)
 
-	log.Fatal(fasthttp.ListenAndServe(":55518", r.Handler))
-}
+	s := &fasthttp.Server{
+		Handler: fasthttplogger.Tiny(r.Handler),
+		Name: "FastHttpLogger",
+	}
+	log.Fatal(s.ListenAndServe(":55518"))}
 
 
