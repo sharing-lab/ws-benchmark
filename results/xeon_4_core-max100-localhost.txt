@@ -1,1390 +1,373 @@
-localhost testing (client & server are in the same server)
-
-1. spring
-==========
-
-ab -n 4096 -c 1 http://192.168.1.12:55506/color
-
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55506
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      1
-Time taken for tests:   0.829 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1323008 bytes
-HTML transferred:       835584 bytes
-Requests per second:    4942.68 [#/sec] (mean)
-Time per request:       0.202 [ms] (mean)
-Time per request:       0.202 [ms] (mean, across all concurrent requests)
-Transfer rate:          1559.07 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:     0    0   0.1      0       3
-Waiting:        0    0   0.1      0       3
-Total:          0    0   0.1      0       3
-
-Percentage of the requests served within a certain time (ms)
-  50%      0
-  66%      0
-  75%      0
-  80%      0
-  90%      0
-  95%      0
-  98%      0
-  99%      0
- 100%      3 (longest request)
-
-
-ab -n 4096 -c 2 http://192.168.1.12:55506/color
-
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55506
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      2
-Time taken for tests:   0.425 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1323331 bytes
-HTML transferred:       835788 bytes
-Requests per second:    9645.39 [#/sec] (mean)
-Time per request:       0.207 [ms] (mean)
-Time per request:       0.104 [ms] (mean, across all concurrent requests)
-Transfer rate:          3043.18 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:     0    0   0.0      0       1
-Waiting:        0    0   0.0      0       1
-Total:          0    0   0.0      0       1
-
-Percentage of the requests served within a certain time (ms)
-  50%      0
-  66%      0
-  75%      0
-  80%      0
-  90%      0
-  95%      0
-  98%      0
-  99%      0
- 100%      1 (longest request)
-
-
-ab -n 4096 -c 4 http://192.168.1.12:55506/color
-
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55506
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      4
-Time taken for tests:   0.306 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1323008 bytes
-HTML transferred:       835584 bytes
-Requests per second:    13365.49 [#/sec] (mean)
-Time per request:       0.299 [ms] (mean)
-Time per request:       0.075 [ms] (mean, across all concurrent requests)
-Transfer rate:          4215.87 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:     0    0   0.1      0       2
-Waiting:        0    0   0.1      0       2
-Total:          0    0   0.1      0       2
-
-Percentage of the requests served within a certain time (ms)
-  50%      0
-  66%      0
-  75%      0
-  80%      0
-  90%      0
-  95%      0
-  98%      0
-  99%      0
- 100%      2 (longest request)
-
-
-ab -n 4096 -c 8 http://192.168.1.12:55506/color
-
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55506
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      8
-Time taken for tests:   0.266 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1323977 bytes
-HTML transferred:       836196 bytes
-Requests per second:    15394.04 [#/sec] (mean)
-Time per request:       0.520 [ms] (mean)
-Time per request:       0.065 [ms] (mean, across all concurrent requests)
-Transfer rate:          4859.29 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:     0    0   0.1      0       3
-Waiting:        0    0   0.1      0       3
-Total:          0    1   0.1      0       3
-ERROR: The median and mean for the total time are more than twice the standard
-       deviation apart. These results are NOT reliable.
-
-Percentage of the requests served within a certain time (ms)
-  50%      0
-  66%      1
-  75%      1
-  80%      1
-  90%      1
-  95%      1
-  98%      1
-  99%      1
- 100%      3 (longest request)
-
-
-ab -n 4096 -c 16 http://192.168.1.12:55506/color
-
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55506
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      16
-Time taken for tests:   0.273 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1323008 bytes
-HTML transferred:       835584 bytes
-Requests per second:    14997.89 [#/sec] (mean)
-Time per request:       1.067 [ms] (mean)
-Time per request:       0.067 [ms] (mean, across all concurrent requests)
-Transfer rate:          4730.78 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.1      0       1
-Processing:     0    1   0.7      1      13
-Waiting:        0    1   0.6      1      12
-Total:          0    1   0.7      1      13
-
-Percentage of the requests served within a certain time (ms)
-  50%      1
-  66%      1
-  75%      1
-  80%      1
-  90%      1
-  95%      2
-  98%      2
-  99%      3
- 100%     13 (longest request)
-
-
-ab -n 4096 -c 32 http://192.168.1.12:55506/color
-
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55506
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      32
-Time taken for tests:   0.272 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1327853 bytes
-HTML transferred:       838644 bytes
-Requests per second:    15052.13 [#/sec] (mean)
-Time per request:       2.126 [ms] (mean)
-Time per request:       0.066 [ms] (mean, across all concurrent requests)
-Transfer rate:          4765.28 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.4      0       4
-Processing:     0    2   0.9      2      15
-Waiting:        0    1   0.9      1      15
-Total:          0    2   0.9      2      15
-
-Percentage of the requests served within a certain time (ms)
-  50%      2
-  66%      2
-  75%      2
-  80%      2
-  90%      3
-  95%      3
-  98%      5
-  99%      6
- 100%     15 (longest request)
-
-
-ab -n 4096 -c 64 http://192.168.1.12:55506/color
-
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55506
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      64
-Time taken for tests:   0.261 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1326238 bytes
-HTML transferred:       837624 bytes
-Requests per second:    15667.97 [#/sec] (mean)
-Time per request:       4.085 [ms] (mean)
-Time per request:       0.064 [ms] (mean, across all concurrent requests)
-Transfer rate:          4954.21 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    2   0.6      1       3
-Processing:     1    3   0.6      3       5
-Waiting:        0    2   0.6      2       4
-Total:          1    4   0.6      4       7
-WARNING: The median and mean for the initial connection time are not within a normal deviation
-        These results are probably not that reliable.
-
-Percentage of the requests served within a certain time (ms)
-  50%      4
-  66%      4
-  75%      4
-  80%      4
-  90%      5
-  95%      5
-  98%      6
-  99%      6
- 100%      7 (longest request)
-
-
-
-2. actix-diesel
-===============
-
-ab -n 4096 -c 1 http://192.168.1.12:55502/color
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55502
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      1
-Time taken for tests:   0.648 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1282048 bytes
-HTML transferred:       835584 bytes
-Requests per second:    6324.46 [#/sec] (mean)
-Time per request:       0.158 [ms] (mean)
-Time per request:       0.158 [ms] (mean, across all concurrent requests)
-Transfer rate:          1933.16 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:     0    0   0.3      0      17
-Waiting:        0    0   0.3      0      17
-Total:          0    0   0.3      0      17
-
-Percentage of the requests served within a certain time (ms)
-  50%      0
-  66%      0
-  75%      0
-  80%      0
-  90%      0
-  95%      0
-  98%      0
-  99%      0
- 100%     17 (longest request)
-
-
-ab -n 4096 -c 2 http://192.168.1.12:55502/color
-
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55502
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      2
-Time taken for tests:   0.345 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1282048 bytes
-HTML transferred:       835584 bytes
-Requests per second:    11880.28 [#/sec] (mean)
-Time per request:       0.168 [ms] (mean)
-Time per request:       0.084 [ms] (mean, across all concurrent requests)
-Transfer rate:          3631.37 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:     0    0   0.0      0       1
-Waiting:        0    0   0.0      0       1
-Total:          0    0   0.0      0       1
-
-Percentage of the requests served within a certain time (ms)
-  50%      0
-  66%      0
-  75%      0
-  80%      0
-  90%      0
-  95%      0
-  98%      0
-  99%      0
- 100%      1 (longest request)
-
-
-ab -n 4096 -c 4 http://192.168.1.12:55502/color
-
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55502
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      4
-Time taken for tests:   0.232 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1282048 bytes
-HTML transferred:       835584 bytes
-Requests per second:    17684.82 [#/sec] (mean)
-Time per request:       0.226 [ms] (mean)
-Time per request:       0.057 [ms] (mean, across all concurrent requests)
-Transfer rate:          5405.62 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:     0    0   0.0      0       1
-Waiting:        0    0   0.0      0       1
-Total:          0    0   0.0      0       1
-
-Percentage of the requests served within a certain time (ms)
-  50%      0
-  66%      0
-  75%      0
-  80%      0
-  90%      0
-  95%      0
-  98%      0
-  99%      0
- 100%      1 (longest request)
-
-
-ab -n 4096 -c 8 http://192.168.1.12:55502/color
-
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55502
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      8
-Time taken for tests:   0.203 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1282048 bytes
-HTML transferred:       835584 bytes
-Requests per second:    20198.53 [#/sec] (mean)
-Time per request:       0.396 [ms] (mean)
-Time per request:       0.050 [ms] (mean, across all concurrent requests)
-Transfer rate:          6173.97 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:     0    0   0.1      0       1
-Waiting:        0    0   0.1      0       1
-Total:          0    0   0.1      0       1
-
-Percentage of the requests served within a certain time (ms)
-  50%      0
-  66%      0
-  75%      0
-  80%      0
-  90%      1
-  95%      1
-  98%      1
-  99%      1
- 100%      1 (longest request)
-
-
-ab -n 4096 -c 16 http://192.168.1.12:55502/color
-
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55502
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      16
-Time taken for tests:   0.188 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1282048 bytes
-HTML transferred:       835584 bytes
-Requests per second:    21807.07 [#/sec] (mean)
-Time per request:       0.734 [ms] (mean)
-Time per request:       0.046 [ms] (mean, across all concurrent requests)
-Transfer rate:          6665.64 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.1      0       0
-Processing:     0    1   0.3      1       2
-Waiting:        0    1   0.2      1       2
-Total:          0    1   0.2      1       2
-
-Percentage of the requests served within a certain time (ms)
-  50%      1
-  66%      1
-  75%      1
-  80%      1
-  90%      1
-  95%      1
-  98%      1
-  99%      1
- 100%      2 (longest request)
-
-
-ab -n 4096 -c 32 http://192.168.1.12:55502/color
-
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55502
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      32
-Time taken for tests:   0.181 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1282048 bytes
-HTML transferred:       835584 bytes
-Requests per second:    22662.01 [#/sec] (mean)
-Time per request:       1.412 [ms] (mean)
-Time per request:       0.044 [ms] (mean, across all concurrent requests)
-Transfer rate:          6926.96 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.2      0       1
-Processing:     0    1   0.5      1       4
-Waiting:        0    1   0.5      1       4
-Total:          0    1   0.5      1       4
-
-Percentage of the requests served within a certain time (ms)
-  50%      1
-  66%      2
-  75%      2
-  80%      2
-  90%      2
-  95%      2
-  98%      3
-  99%      3
- 100%      4 (longest request)
-
-
-ab -n 4096 -c 64 http://192.168.1.12:55502/color
-
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55502
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      64
-Time taken for tests:   0.175 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1282361 bytes
-HTML transferred:       835788 bytes
-Requests per second:    23380.86 [#/sec] (mean)
-Time per request:       2.737 [ms] (mean)
-Time per request:       0.043 [ms] (mean, across all concurrent requests)
-Transfer rate:          7148.43 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.3      0       1
-Processing:     0    2   1.3      2      10
-Waiting:        0    2   1.3      2      10
-Total:          0    3   1.3      3      10
-
-Percentage of the requests served within a certain time (ms)
-  50%      3
-  66%      3
-  75%      3
-  80%      4
-  90%      4
-  95%      5
-  98%      6
-  99%      7
- 100%     10 (longest request)
-
-
-
-3. spider gazelle
-=================
-
-ab -n 4096 -c 1 http://192.168.1.12:55501/color
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55501
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      1
-Time taken for tests:   0.425 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1130496 bytes
-HTML transferred:       835584 bytes
-Requests per second:    9631.35 [#/sec] (mean)
-Time per request:       0.104 [ms] (mean)
-Time per request:       0.104 [ms] (mean, across all concurrent requests)
-Transfer rate:          2595.95 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:     0    0   0.0      0       1
-Waiting:        0    0   0.0      0       1
-Total:          0    0   0.0      0       1
-
-Percentage of the requests served within a certain time (ms)
-  50%      0
-  66%      0
-  75%      0
-  80%      0
-  90%      0
-  95%      0
-  98%      0
-  99%      0
- 100%      1 (longest request)
-
-
-ab -n 4096 -c 2 http://192.168.1.12:55501/color
-
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55501
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      2
-Time taken for tests:   0.224 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1130496 bytes
-HTML transferred:       835584 bytes
-Requests per second:    18261.42 [#/sec] (mean)
-Time per request:       0.110 [ms] (mean)
-Time per request:       0.055 [ms] (mean, across all concurrent requests)
-Transfer rate:          4922.02 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:     0    0   0.0      0       1
-Waiting:        0    0   0.0      0       1
-Total:          0    0   0.0      0       1
-
-Percentage of the requests served within a certain time (ms)
-  50%      0
-  66%      0
-  75%      0
-  80%      0
-  90%      0
-  95%      0
-  98%      0
-  99%      0
- 100%      1 (longest request)
-
-
-ab -n 4096 -c 4 http://192.168.1.12:55501/color
-
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55501
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      4
-Time taken for tests:   0.162 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1130496 bytes
-HTML transferred:       835584 bytes
-Requests per second:    25336.34 [#/sec] (mean)
-Time per request:       0.158 [ms] (mean)
-Time per request:       0.039 [ms] (mean, across all concurrent requests)
-Transfer rate:          6828.94 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:     0    0   0.1      0       1
-Waiting:        0    0   0.1      0       1
-Total:          0    0   0.1      0       1
-
-Percentage of the requests served within a certain time (ms)
-  50%      0
-  66%      0
-  75%      0
-  80%      0
-  90%      0
-  95%      0
-  98%      0
-  99%      0
- 100%      1 (longest request)
-
-
-ab -n 4096 -c 8 http://192.168.1.12:55501/color
-
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55501
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      8
-Time taken for tests:   0.164 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1130496 bytes
-HTML transferred:       835584 bytes
-Requests per second:    25010.38 [#/sec] (mean)
-Time per request:       0.320 [ms] (mean)
-Time per request:       0.040 [ms] (mean, across all concurrent requests)
-Transfer rate:          6741.08 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:     0    0   0.1      0       1
-Waiting:        0    0   0.1      0       1
-Total:          0    0   0.1      0       1
-
-Percentage of the requests served within a certain time (ms)
-  50%      0
-  66%      0
-  75%      0
-  80%      0
-  90%      0
-  95%      0
-  98%      1
-  99%      1
- 100%      1 (longest request)
-
-
-ab -n 4096 -c 16 http://192.168.1.12:55501/color
-
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55501
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      16
-Time taken for tests:   0.176 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1130496 bytes
-HTML transferred:       835584 bytes
-Requests per second:    23253.83 [#/sec] (mean)
-Time per request:       0.688 [ms] (mean)
-Time per request:       0.043 [ms] (mean, across all concurrent requests)
-Transfer rate:          6267.63 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:     0    1   0.2      1       5
-Waiting:        0    1   0.2      1       5
-Total:          0    1   0.2      1       5
-
-Percentage of the requests served within a certain time (ms)
-  50%      1
-  66%      1
-  75%      1
-  80%      1
-  90%      1
-  95%      1
-  98%      1
-  99%      1
- 100%      5 (longest request)
-
-
-ab -n 4096 -c 32 http://192.168.1.12:55501/color
-
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55501
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      32
-Time taken for tests:   0.184 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1130496 bytes
-HTML transferred:       835584 bytes
-Requests per second:    22220.29 [#/sec] (mean)
-Time per request:       1.440 [ms] (mean)
-Time per request:       0.045 [ms] (mean, across all concurrent requests)
-Transfer rate:          5989.06 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:     0    1   0.5      1      12
-Waiting:        0    1   0.5      1      12
-Total:          0    1   0.6      1      12
-
-Percentage of the requests served within a certain time (ms)
-  50%      1
-  66%      1
-  75%      2
-  80%      2
-  90%      2
-  95%      2
-  98%      2
-  99%      3
- 100%     12 (longest request)
-
-
-ab -n 4096 -c 64 http://192.168.1.12:55501/color
-
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55501
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      64
-Time taken for tests:   0.195 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1130496 bytes
-HTML transferred:       835584 bytes
-Requests per second:    20957.41 [#/sec] (mean)
-Time per request:       3.054 [ms] (mean)
-Time per request:       0.048 [ms] (mean, across all concurrent requests)
-Transfer rate:          5648.68 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.1      0       1
-Processing:     0    3   1.5      3      19
-Waiting:        0    3   1.5      3      19
-Total:          1    3   1.5      3      20
-
-Percentage of the requests served within a certain time (ms)
-  50%      3
-  66%      3
-  75%      3
-  80%      3
-  90%      3
-  95%      4
-  98%      6
-  99%     12
- 100%     20 (longest request)
-
-
-4. kemal
-========
-
-ab -n 4096 -c 1 http://192.168.1.12:55504/color
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-Completed 409 requests
-Completed 818 requests
-Completed 1227 requests
-Completed 1636 requests
-Completed 2045 requests
-Completed 2454 requests
-Completed 2863 requests
-Completed 3272 requests
-Completed 3681 requests
-Completed 4090 requests
-Finished 4096 requests
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55504
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      1
-Time taken for tests:   0.440 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1216512 bytes
-HTML transferred:       835584 bytes
-Requests per second:    9299.01 [#/sec] (mean)
-Time per request:       0.108 [ms] (mean)
-Time per request:       0.108 [ms] (mean, across all concurrent requests)
-Transfer rate:          2697.08 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:     0    0   0.0      0       0
-Waiting:        0    0   0.0      0       0
-Total:          0    0   0.0      0       0
-
-Percentage of the requests served within a certain time (ms)
-  50%      0
-  66%      0
-  75%      0
-  80%      0
-  90%      0
-  95%      0
-  98%      0
-  99%      0
- 100%      0 (longest request)
-ab -n 4096 -c 2 http://192.168.1.12:55504/color
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-Completed 409 requests
-Completed 818 requests
-Completed 1227 requests
-Completed 1636 requests
-Completed 2045 requests
-Completed 2454 requests
-Completed 2863 requests
-Completed 3272 requests
-Completed 3681 requests
-Completed 4090 requests
-Finished 4096 requests
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55504
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      2
-Time taken for tests:   0.227 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1216512 bytes
-HTML transferred:       835584 bytes
-Requests per second:    18025.31 [#/sec] (mean)
-Time per request:       0.111 [ms] (mean)
-Time per request:       0.055 [ms] (mean, across all concurrent requests)
-Transfer rate:          5228.04 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:     0    0   0.0      0       1
-Waiting:        0    0   0.0      0       1
-Total:          0    0   0.0      0       1
-
-Percentage of the requests served within a certain time (ms)
-  50%      0
-  66%      0
-  75%      0
-  80%      0
-  90%      0
-  95%      0
-  98%      0
-  99%      0
- 100%      1 (longest request)
-ab -n 4096 -c 4 http://192.168.1.12:55504/color
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-Completed 409 requests
-Completed 818 requests
-Completed 1227 requests
-Completed 1636 requests
-Completed 2045 requests
-Completed 2454 requests
-Completed 2863 requests
-Completed 3272 requests
-Completed 3681 requests
-Completed 4090 requests
-Finished 4096 requests
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55504
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      4
-Time taken for tests:   0.174 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1216512 bytes
-HTML transferred:       835584 bytes
-Requests per second:    23592.16 [#/sec] (mean)
-Time per request:       0.170 [ms] (mean)
-Time per request:       0.042 [ms] (mean, across all concurrent requests)
-Transfer rate:          6842.65 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:     0    0   0.1      0       0
-Waiting:        0    0   0.1      0       0
-Total:          0    0   0.1      0       0
-
-Percentage of the requests served within a certain time (ms)
-  50%      0
-  66%      0
-  75%      0
-  80%      0
-  90%      0
-  95%      0
-  98%      0
-  99%      0
- 100%      0 (longest request)
-ab -n 4096 -c 8 http://192.168.1.12:55504/color
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-Completed 409 requests
-Completed 818 requests
-Completed 1227 requests
-Completed 1636 requests
-Completed 2045 requests
-Completed 2454 requests
-Completed 2863 requests
-Completed 3272 requests
-Completed 3681 requests
-Completed 4090 requests
-Finished 4096 requests
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55504
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      8
-Time taken for tests:   0.159 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1216512 bytes
-HTML transferred:       835584 bytes
-Requests per second:    25750.32 [#/sec] (mean)
-Time per request:       0.311 [ms] (mean)
-Time per request:       0.039 [ms] (mean, across all concurrent requests)
-Transfer rate:          7468.60 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:     0    0   0.1      0       2
-Waiting:        0    0   0.1      0       2
-Total:          0    0   0.1      0       2
-
-Percentage of the requests served within a certain time (ms)
-  50%      0
-  66%      0
-  75%      0
-  80%      0
-  90%      0
-  95%      1
-  98%      1
-  99%      1
- 100%      2 (longest request)
-ab -n 4096 -c 16 http://192.168.1.12:55504/color
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-Completed 409 requests
-Completed 818 requests
-Completed 1227 requests
-Completed 1636 requests
-Completed 2045 requests
-Completed 2454 requests
-Completed 2863 requests
-Completed 3272 requests
-Completed 3681 requests
-Completed 4090 requests
-Finished 4096 requests
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55504
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      16
-Time taken for tests:   0.174 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1216512 bytes
-HTML transferred:       835584 bytes
-Requests per second:    23527.11 [#/sec] (mean)
-Time per request:       0.680 [ms] (mean)
-Time per request:       0.043 [ms] (mean, across all concurrent requests)
-Transfer rate:          6823.78 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:     0    1   0.2      1       2
-Waiting:        0    1   0.2      1       2
-Total:          0    1   0.2      1       2
-
-Percentage of the requests served within a certain time (ms)
-  50%      1
-  66%      1
-  75%      1
-  80%      1
-  90%      1
-  95%      1
-  98%      1
-  99%      1
- 100%      2 (longest request)
-ab -n 4096 -c 32 http://192.168.1.12:55504/color
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-Completed 409 requests
-Completed 818 requests
-Completed 1227 requests
-Completed 1636 requests
-Completed 2045 requests
-Completed 2454 requests
-Completed 2863 requests
-Completed 3272 requests
-Completed 3681 requests
-Completed 4090 requests
-Finished 4096 requests
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55504
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      32
-Time taken for tests:   0.183 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1216512 bytes
-HTML transferred:       835584 bytes
-Requests per second:    22331.75 [#/sec] (mean)
-Time per request:       1.433 [ms] (mean)
-Time per request:       0.045 [ms] (mean, across all concurrent requests)
-Transfer rate:          6477.08 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:     0    1   0.3      1       3
-Waiting:        0    1   0.3      1       3
-Total:          0    1   0.3      1       3
-
-Percentage of the requests served within a certain time (ms)
-  50%      1
-  66%      2
-  75%      2
-  80%      2
-  90%      2
-  95%      2
-  98%      2
-  99%      2
- 100%      3 (longest request)
-ab -n 4096 -c 64 http://192.168.1.12:55504/color
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 192.168.1.12 (be patient)
-Completed 409 requests
-Completed 818 requests
-Completed 1227 requests
-Completed 1636 requests
-Completed 2045 requests
-Completed 2454 requests
-Completed 2863 requests
-Completed 3272 requests
-Completed 3681 requests
-Completed 4090 requests
-Finished 4096 requests
-
-
-Server Software:        
-Server Hostname:        192.168.1.12
-Server Port:            55504
-
-Document Path:          /color
-Document Length:        204 bytes
-
-Concurrency Level:      64
-Time taken for tests:   0.211 seconds
-Complete requests:      4096
-Failed requests:        0
-Write errors:           0
-Total transferred:      1216512 bytes
-HTML transferred:       835584 bytes
-Requests per second:    19368.54 [#/sec] (mean)
-Time per request:       3.304 [ms] (mean)
-Time per request:       0.052 [ms] (mean, across all concurrent requests)
-Transfer rate:          5617.63 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.1      0       1
-Processing:     0    3   0.5      3       5
-Waiting:        0    3   0.5      3       5
-Total:          1    3   0.5      3       5
-
-Percentage of the requests served within a certain time (ms)
-  50%      3
-  66%      3
-  75%      4
-  80%      4
-  90%      4
-  95%      4
-  98%      4
-  99%      4
- 100%      5 (longest request)
+1. spider-gazelle
+==================
+
+wrk -t1 -c1 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 1 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    84.48us   12.69us 352.00us   98.25%
+    Req/Sec    11.77k   729.86    14.33k    78.53%
+  111521 requests in 10.00s, 31.91MB read
+Requests/sec:  11152.21
+Transfer/sec:      3.19MB
+
+wrk -t1 -c2 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 2 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    98.93us   18.78us 766.00us   89.99%
+    Req/Sec    20.61k     1.60k   28.33k    68.42%
+  194948 requests in 10.00s, 55.78MB read
+Requests/sec:  19495.00
+Transfer/sec:      5.58MB
+
+wrk -t1 -c4 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 4 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   123.71us   24.66us 435.00us   94.21%
+    Req/Sec    33.19k     2.37k   36.78k    70.50%
+  313898 requests in 10.00s, 89.81MB read
+Requests/sec:  31390.22
+Transfer/sec:      8.98MB
+
+wrk -t1 -c8 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 8 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   262.82us  123.14us   4.66ms   92.48%
+    Req/Sec    31.47k     2.54k   38.22k    69.13%
+  297604 requests in 10.00s, 85.15MB read
+Requests/sec:  29760.47
+Transfer/sec:      8.51MB
+
+wrk -t1 -c16 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 16 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   542.89us  177.62us   6.42ms   85.51%
+    Req/Sec    30.74k     2.34k   38.22k    73.13%
+  290924 requests in 10.00s, 83.23MB read
+Requests/sec:  29092.72
+Transfer/sec:      8.32MB
+
+wrk -t1 -c32 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 32 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.13ms  264.63us   4.50ms   76.50%
+    Req/Sec    29.38k     1.81k   36.00k    63.75%
+  278524 requests in 10.00s, 79.69MB read
+Requests/sec:  27852.75
+Transfer/sec:      7.97MB
+
+wrk -t1 -c64 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 64 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     2.39ms  567.79us   4.38ms   76.04%
+    Req/Sec    27.84k     2.06k   34.00k    67.34%
+  263964 requests in 10.00s, 75.52MB read
+Requests/sec:  26396.70
+Transfer/sec:      7.55MB
+
+
+2. fasthttp-router
+==================
+
+wrk -t1 -c1 -d10s http://127.0.0.1:55518/color
+Running 10s test @ http://127.0.0.1:55518/color
+  1 threads and 1 connections
+
+
+
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    88.75us   18.74us 385.00us   87.00%
+    Req/Sec    11.24k   844.37    13.89k    68.42%
+  106265 requests in 10.00s, 34.25MB read
+Requests/sec:  10626.63
+Transfer/sec:      3.43MB
+
+wrk -t1 -c2 -d10s http://127.0.0.1:55518/color
+Running 10s test @ http://127.0.0.1:55518/color
+  1 threads and 2 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    93.86us   12.94us 370.00us   88.45%
+    Req/Sec    21.54k     1.36k   25.78k    72.95%
+  203578 requests in 10.00s, 65.62MB read
+Requests/sec:  20358.05
+Transfer/sec:      6.56MB
+
+wrk -t1 -c4 -d10s http://127.0.0.1:55518/color
+Running 10s test @ http://127.0.0.1:55518/color
+  1 threads and 4 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   124.05us   34.73us 498.00us   75.79%
+    Req/Sec    32.29k     1.94k   35.56k    68.18%
+  304743 requests in 10.00s, 98.23MB read
+Requests/sec:  30474.65
+Transfer/sec:      9.82MB
+
+wrk -t1 -c8 -d10s http://127.0.0.1:55518/color
+Running 10s test @ http://127.0.0.1:55518/color
+  1 threads and 8 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   246.40us  100.42us   1.54ms   72.44%
+    Req/Sec    32.80k     2.72k   43.56k    69.55%
+  311075 requests in 10.00s, 100.27MB read
+Requests/sec:  31107.92
+Transfer/sec:     10.03MB
+
+wrk -t1 -c16 -d10s http://127.0.0.1:55518/color
+Running 10s test @ http://127.0.0.1:55518/color
+  1 threads and 16 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   405.21us  184.25us   4.50ms   77.38%
+    Req/Sec    39.49k     2.39k   46.78k    64.81%
+  373795 requests in 10.00s, 120.49MB read
+Requests/sec:  37379.68
+Transfer/sec:     12.05MB
+
+wrk -t1 -c32 -d10s http://127.0.0.1:55518/color
+Running 10s test @ http://127.0.0.1:55518/color
+  1 threads and 32 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   754.13us  406.10us   7.38ms   79.08%
+    Req/Sec    42.51k     2.79k   49.11k    67.65%
+  401492 requests in 10.00s, 129.42MB read
+Requests/sec:  40148.49
+Transfer/sec:     12.94MB
+
+wrk -t1 -c64 -d10s http://127.0.0.1:55518/color
+Running 10s test @ http://127.0.0.1:55518/color
+  1 threads and 64 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.50ms    0.90ms  16.49ms   78.25%
+    Req/Sec    42.57k     3.84k   52.22k    71.99%
+  403318 requests in 10.00s, 130.01MB read
+Requests/sec:  40332.02
+Transfer/sec:     13.00MB
+
+
+3. spider-gazelle-mt
+====================
+
+wrk -t1 -c1 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 1 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    86.58us   16.66us 463.00us   97.49%
+    Req/Sec    11.55k   816.12    14.00k    79.89%
+  109608 requests in 10.00s, 31.36MB read
+Requests/sec:  10960.89
+Transfer/sec:      3.14MB
+
+wrk -t1 -c2 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 2 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    87.18us   16.19us 507.00us   98.89%
+    Req/Sec    22.97k     1.36k   25.89k    51.26%
+  217123 requests in 10.00s, 62.12MB read
+Requests/sec:  21712.57
+Transfer/sec:      6.21MB
+
+wrk -t1 -c4 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 4 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   137.48us   48.66us   1.28ms   86.58%
+    Req/Sec    29.45k     2.12k   34.33k    67.33%
+  278866 requests in 10.00s, 79.78MB read
+Requests/sec:  27886.97
+Transfer/sec:      7.98MB
+
+wrk -t1 -c8 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 8 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   218.25us  133.68us   1.64ms   87.34%
+    Req/Sec    37.69k     2.13k   41.89k    61.33%
+  356969 requests in 10.00s, 102.13MB read
+Requests/sec:  35697.34
+Transfer/sec:     10.21MB
+
+wrk -t1 -c16 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 16 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   427.25us  290.54us   2.43ms   70.73%
+    Req/Sec    38.83k     2.13k   43.44k    60.17%
+  367441 requests in 10.00s, 105.13MB read
+Requests/sec:  36744.53
+Transfer/sec:     10.51MB
+
+wrk -t1 -c32 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 32 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     0.87ms  584.11us   9.66ms   64.53%
+    Req/Sec    38.90k     2.37k   44.11k    59.01%
+  367915 requests in 10.00s, 105.26MB read
+Requests/sec:  36791.95
+Transfer/sec:     10.53MB
+
+wrk -t1 -c64 -d10s http://127.0.0.1:55501/color
+Running 10s test @ http://127.0.0.1:55501/color
+  1 threads and 64 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.77ms    1.15ms  10.85ms   66.21%
+    Req/Sec    38.11k     2.67k   44.78k    70.81%
+  360529 requests in 10.00s, 103.15MB read
+Requests/sec:  36053.11
+Transfer/sec:     10.31MB
+
+
+4. actix-diesel
+================
+
+wrk -t1 -c1 -d10s http://127.0.0.1:55502/color
+Running 10s test @ http://127.0.0.1:55502/color
+  1 threads and 1 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   147.29us   15.57us 774.00us   95.88%
+    Req/Sec     6.97k   460.23     8.56k    50.63%
+  65701 requests in 10.00s, 19.61MB read
+Requests/sec:   6570.17
+Transfer/sec:      1.96MB
+
+wrk -t1 -c2 -d10s http://127.0.0.1:55502/color
+Running 10s test @ http://127.0.0.1:55502/color
+  1 threads and 2 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   161.79us   15.95us 700.00us   88.82%
+    Req/Sec    12.67k   679.37    14.22k    78.95%
+  119957 requests in 10.00s, 35.81MB read
+Requests/sec:  11995.85
+Transfer/sec:      3.58MB
+
+wrk -t1 -c4 -d10s http://127.0.0.1:55502/color
+Running 10s test @ http://127.0.0.1:55502/color
+  1 threads and 4 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   202.30us   72.80us   4.87ms   98.05%
+    Req/Sec    20.49k     1.59k   22.33k    94.00%
+  193844 requests in 10.00s, 57.86MB read
+Requests/sec:  19384.64
+Transfer/sec:      5.79MB
+
+wrk -t1 -c8 -d10s http://127.0.0.1:55502/color
+Running 10s test @ http://127.0.0.1:55502/color
+  1 threads and 8 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   395.60us  200.18us   8.67ms   88.09%
+    Req/Sec    21.16k     1.54k   25.89k    74.74%
+  200835 requests in 10.00s, 59.95MB read
+Requests/sec:  20083.65
+Transfer/sec:      5.99MB
+
+wrk -t1 -c16 -d10s http://127.0.0.1:55502/color
+Running 10s test @ http://127.0.0.1:55502/color
+  1 threads and 16 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   711.01us  329.26us   6.14ms   73.52%
+    Req/Sec    23.49k     1.67k   28.22k    72.08%
+  222415 requests in 10.00s, 66.39MB read
+Requests/sec:  22241.28
+Transfer/sec:      6.64MB
+
+wrk -t1 -c32 -d10s http://127.0.0.1:55502/color
+Running 10s test @ http://127.0.0.1:55502/color
+  1 threads and 32 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.32ms  599.11us   7.01ms   73.44%
+    Req/Sec    25.31k     1.97k   31.11k    81.03%
+  239677 requests in 10.00s, 71.54MB read
+Requests/sec:  23967.68
+Transfer/sec:      7.15MB
+
+wrk -t1 -c64 -d10s http://127.0.0.1:55502/color
+Running 10s test @ http://127.0.0.1:55502/color
+  1 threads and 64 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     2.59ms    1.01ms  15.51ms   71.96%
+    Req/Sec    25.95k     2.15k   30.67k    78.29%
+  245476 requests in 10.00s, 73.27MB read
+Requests/sec:  24547.47
+Transfer/sec:      7.33MB
+
+
+5. actix-tokio
+==============
+
+wrk -t1 -c1 -d10s http://127.0.0.1:55519/color
+Running 10s test @ http://127.0.0.1:55519/color
+  1 threads and 1 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    79.37us    9.95us 356.00us   98.24%
+    Req/Sec    12.56k   730.15    14.22k    74.21%
+  118937 requests in 10.00s, 37.20MB read
+Requests/sec:  11893.69
+Transfer/sec:      3.72MB
+
+wrk -t1 -c2 -d10s http://127.0.0.1:55519/color
+Running 10s test @ http://127.0.0.1:55519/color
+  1 threads and 2 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    80.92us    9.59us 341.00us   95.88%
+    Req/Sec    24.79k     1.40k   28.56k    70.00%
+  234153 requests in 10.00s, 73.24MB read
+Requests/sec:  23415.25
+Transfer/sec:      7.32MB
+
+wrk -t1 -c4 -d10s http://127.0.0.1:55519/color
+Running 10s test @ http://127.0.0.1:55519/color
+  1 threads and 4 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   127.10us   49.61us   4.58ms   93.69%
+    Req/Sec    31.70k     1.99k   34.78k    83.14%
+  300272 requests in 10.00s, 93.93MB read
+Requests/sec:  30027.36
+Transfer/sec:      9.39MB
+
+wrk -t1 -c8 -d10s http://127.0.0.1:55519/color
+Running 10s test @ http://127.0.0.1:55519/color
+  1 threads and 8 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   783.63us    6.51ms  76.08ms   99.25%
+    Req/Sec    36.96k     3.99k   43.44k    94.10%
+  350277 requests in 10.00s, 109.57MB read
+Requests/sec:  35027.75
+Transfer/sec:     10.96MB
+
+wrk -t1 -c16 -d10s http://127.0.0.1:55519/color
+Running 10s test @ http://127.0.0.1:55519/color
+  1 threads and 16 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   384.17us  154.06us   1.44ms   71.84%
+    Req/Sec    42.81k     2.65k   51.78k    64.59%
+  404936 requests in 10.00s, 126.67MB read
+Requests/sec:  40493.51
+Transfer/sec:     12.67MB
+
+wrk -t1 -c32 -d10s http://127.0.0.1:55519/color
+Running 10s test @ http://127.0.0.1:55519/color
+  1 threads and 32 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   696.34us  259.97us   2.48ms   70.11%
+    Req/Sec    47.63k     2.82k   56.44k    63.33%
+  450906 requests in 10.00s, 141.05MB read
+Requests/sec:  45090.82
+Transfer/sec:     14.10MB
+
+wrk -t1 -c64 -d10s http://127.0.0.1:55519/color
+Running 10s test @ http://127.0.0.1:55519/color
+  1 threads and 64 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.31ms  429.60us   9.80ms   71.17%
+    Req/Sec    50.96k     3.32k   60.00k    68.07%
+  481922 requests in 10.00s, 150.75MB read
+Requests/sec:  48192.06
+Transfer/sec:     15.07MB
+
+
