@@ -6,7 +6,7 @@ edition = "2018"
 
 [dependencies]
 actix-web = "1.0.0"
-actix-service = "0.4"
+actix-service = "2.0"
 actix-http = "0.2"
 actix-threadpool = "0.1"
 
